@@ -1,16 +1,102 @@
 import {ButtonLink,CTA,Eyebrow,SectionHeading,TextLink} from '@/components/site/UI';
 import {Logo} from '@/components/brand/Logo';
-import {ArrowUpRight,Clapperboard,Lightbulb,TrendingUp} from 'lucide-react';
+import {PatternArt} from '@/components/art/PatternArt';
+import {JsonLd} from '@/components/site/StructuredData';
+import {ArrowUpRight,AudioLines,Camera,Clapperboard,Lightbulb,MessageCircleQuestion,MoveUpRight,PenTool,Plus,Sparkles,TrendingUp,Type,Users,MapPin,ShieldCheck} from 'lucide-react';
 import {marketServices} from '@/lib/market-services.mjs';
+import {faqs} from '@/lib/faq.mjs';
 import {pageMetadata} from '@/lib/site';
+
 export const metadata=pageMetadata('Ideas that move business.','Grow with Pamsika AdLab campaigns and Creative Market services: creativity, AI-powered production and African cultural intelligence.','/');
+
+const disciplineIcons:Record<string,typeof Camera>={'film-and-video':Clapperboard,'design-and-branding':PenTool,photography:Camera,'writing-and-content':Type,'sound-and-voice':AudioLines,'animation-and-motion':MoveUpRight};
+const homeAnswers=['what-is-pamsika','choose-an-offering','pricing','ai-production'].map(id=>faqs.find(item=>item.id===id)!).filter(Boolean);
+
 export default function Home(){return <>
-<section className="home-hero container"><div className="hero-copy"><Eyebrow>African ambition. Amplified.</Eyebrow><h1>Ideas that<br/>move <span>business.</span></h1><p className="lead">Your ambition deserves a bigger stage. We bring creativity, technology and local intelligence together to help your business make its next move.</p><div className="actions"><ButtonLink href="/start-a-campaign">Start a campaign</ButtonLink><TextLink href="#our-offerings">Explore our offerings</TextLink></div><div className="hero-note"><span className="short-rule"/><p>AI-powered. Human-led.<br/>Built for African business.</p></div></div><figure className="hero-image"><img src="/media/founder-1280.webp" srcSet="/media/founder-640.webp 640w, /media/founder-1280.webp 1280w, /media/founder-1672.webp 1672w" sizes="(max-width:767px) 100vw, 50vw" width="1672" height="941" alt="Illustrative campaign portrait of a fashion entrepreneur in her studio" fetchPriority="high"/><div className="hero-image-copy"><span className="eyebrow">The ambition behind the business</span><p>Built here.<br/>Ready for more.</p></div><figcaption>AdLab creative direction · Illustrative concept</figcaption></figure></section>
-<section className="container faq-first-visit" aria-label="New to Pamsika"><p><strong>First time here?</strong> Understand the platform and find your next step.</p><TextLink href="/faq?view=guide">Help me choose</TextLink></section>
-<div className="capability-strip"><div className="container"><span>Business meets possibility.</span><span>Strategy</span><span>Creativity</span><span>Technology</span><span>Culture</span></div></div>
-<section id="meet-adlab" className="section dark-section" data-theme="dark"><div className="container"><SectionHeading eyebrow="Meet our flagship" title="Big ideas. Made to move." description="Pamsika AdLab turns business ambition into advertising people feel, remember and act on." action={<TextLink href="/adlab">Explore AdLab</TextLink>}/><div className="adlab-feature"><figure className="feature-image"><img src="/media/citrus-1280.webp" width="1672" height="941" alt="Illustrative product concept with a chilled citrus drink in dramatic studio light" loading="lazy"/><figcaption>Product campaign · Illustrative concept</figcaption></figure><div className="feature-copy"><Logo kind="adlab" dark width={264}/><h3>Malawian stories.<br/>World-class commercials.</h3><p>From the first insight to the final frame. Original concepts, AI-assisted commercial production and locally relevant campaigns, made around what your business needs.</p><div className="inline-tags"><span>Brand films</span><span>Product campaigns</span><span>Social content</span></div><ButtonLink href="/work" variant="accent">Explore the ideas</ButtonLink></div></div></div></section>
-<section className="section container market-home-card" id="meet-creative-market"><div><Eyebrow>Meet Creative Market</Eyebrow><h2>The craft behind your next move.</h2><p className="lead">Find a starting point for your project, from photography and design to writing, sound and motion. Share a brief to explore a creative match, or apply to join as a creator.</p><div className="actions"><ButtonLink href="/creative-market">Explore Creative Market</ButtonLink><TextLink href="/creative-market/join">For creators</TextLink></div></div><div className="market-home-links">{marketServices.map(service=><a href={`/creative-market/${service.slug}`} key={service.slug}>{service.title}<ArrowUpRight size={20} aria-hidden/></a>)}</div></section>
-<section className="section container"><SectionHeading eyebrow="More than a good-looking ad" title="Built around your business." description="A clear idea, the right creative expression and a practical path to market."/><div className="service-grid">{[{Icon:Lightbulb,n:'01',title:'Find the idea',text:'Turn your business challenge into a focused creative direction. We start with your audience and the action you want them to take.'},{Icon:Clapperboard,n:'02',title:'Make it matter',text:'Bring the idea to life through film, design and content. Technology expands the possibilities. Human judgment gives it purpose.'},{Icon:TrendingUp,n:'03',title:'Move it forward',text:'Shape the campaign for the places your audience spends time, with formats and messaging that work together.'}].map(({Icon,n,title,text})=><article className="service-card" key={n}><div className="card-top"><Icon size={28} strokeWidth={1.75} aria-hidden/><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div><div className="section-tail"><TextLink href="/services">Explore our services</TextLink></div></section>
-<section className="section surface-secondary" id="our-offerings"><div className="container platform-row"><div><Eyebrow>One platform. Growing possibilities.</Eyebrow><h2>Start with the idea.<br/>Grow from there.</h2></div><div><p className="lead">Two ways to move your business forward: AdLab for a campaign from idea to execution, and Creative Market for the creative skills your project needs. Pamsika is the platform that brings them together.</p><div className="platform-list"><LinkRow title="Pamsika AdLab" state="Explore" href="/adlab"/><div><span>AI Business Studio</span><span className="quiet-label">Future offering</span></div><LinkRow title="Creative Market" state="Explore" href="/creative-market"/></div></div></div></section><CTA/>
+<JsonLd data={{'@context':'https://schema.org','@type':'FAQPage',mainEntity:homeAnswers.map(item=>({'@type':'Question',name:item.question,acceptedAnswer:{'@type':'Answer',text:item.answer}}))}}/>
+
+<section className="hero-v2">
+ <div className="container hero-v2-grid">
+  <div>
+   <p className="eyebrow eyebrow-pill" data-rise="1">African ambition. Amplified.</p>
+   <h1 data-rise="2"><span className="line">Ideas that</span><span className="line"><span className="accent-text">move</span> <span className="blue-text">business.</span></span></h1>
+   <p className="lead" data-rise="3">Your ambition deserves a bigger stage. Pamsika brings creativity, technology and local intelligence together to help your business make its next move.</p>
+   <div className="actions" data-rise="4"><ButtonLink href="/start-a-campaign" track="Start a campaign (hero)">Start a campaign</ButtonLink><ButtonLink href="/faq?view=guide" variant="glass" arrow={false} track="Help me choose (hero)"><Sparkles size={16} aria-hidden/>Help me choose</ButtonLink></div>
+   <div className="hero-proof" data-rise="5"><span><MapPin size={15} aria-hidden/>Malawian creative focus</span><span><Sparkles size={15} aria-hidden/>AI-assisted production</span><span><Users size={15} aria-hidden/>Human creative direction</span><span><ShieldCheck size={15} aria-hidden/>Scope agreed first</span></div>
+  </div>
+  <div className="hero-stage" data-rise="3">
+   <figure className="hero-photo"><img src="/media/founder-1280.webp" srcSet="/media/founder-640.webp 640w, /media/founder-1280.webp 1280w, /media/founder-1672.webp 1672w" sizes="(max-width:1023px) 92vw, 44vw" width="1672" height="941" alt="Illustrative campaign portrait of a fashion entrepreneur in her studio" fetchPriority="high"/><figcaption>AdLab creative direction · Illustrative concept</figcaption></figure>
+   <div className="hero-float hero-float-a glass"><p className="eyebrow">The ambition behind the business</p><strong>Built here.<br/>Ready for more.</strong><p>Brand stories that put the founder at the centre.</p></div>
+   <div className="hero-float hero-float-b glass" aria-hidden="true"><span><i/>Strategy</span><span><i/>Creativity</span><span><i/>Technology</span><span><i/>Culture</span></div>
+  </div>
+ </div>
+</section>
+
+<div className="marquee" aria-hidden="true"><div className="marquee-track">{[0,1].flatMap(copy=>['Business meets possibility','Strategy','Creativity','Technology','Culture','Malawian stories','World-class commercials'].map(word=><span key={word+copy}>{word}</span>))}</div></div>
+
+<section className="section container" id="our-offerings">
+ <SectionHeading eyebrow="One platform. Growing possibilities." title="Start with the idea. Grow from there." description="Two ways to move your business forward: AdLab for a campaign from idea to execution, and Creative Market for the creative skills your project needs."/>
+ <div className="offer-grid">
+  <article className="offer-card" data-reveal>
+   <img src="/media/citrus-1280.webp" srcSet="/media/citrus-640.webp 640w, /media/citrus-1280.webp 1280w, /media/citrus-1672.webp 1672w" sizes="(max-width:1023px) 100vw, 56vw" width="1672" height="941" alt="Illustrative product campaign: a chilled citrus drink in dramatic studio light" loading="lazy"/>
+   <div className="offer-panel glass">
+    <Logo kind="adlab" dark width={190}/>
+    <h3>Malawian stories.<br/>World-class commercials.</h3>
+    <p>From the first insight to the final frame: original concepts, AI-assisted commercial production and locally relevant campaigns.</p>
+    <div className="offer-tags"><span>Brand films</span><span>Product campaigns</span><span>Social content</span></div>
+    <div className="actions"><ButtonLink href="/adlab" variant="accent" track="Explore AdLab (home)">Explore AdLab</ButtonLink><TextLink href="/work">See the ideas</TextLink></div>
+   </div>
+  </article>
+  <article className="offer-card" data-reveal>
+   <PatternArt id="market"/>
+   <div className="offer-panel glass">
+    <p className="eyebrow">Creative Market</p>
+    <h3>The craft behind your next move.</h3>
+    <p>Find a starting point for your project, from photography and design to writing, sound and motion. Share a brief to explore a creative match.</p>
+    <div className="actions"><ButtonLink href="/creative-market" track="Explore Creative Market (home)">Explore the market</ButtonLink><TextLink href="/creative-market/join">For creators</TextLink></div>
+   </div>
+  </article>
+ </div>
+ <div className="offer-future glass" data-reveal><div><strong>AI Business Studio</strong><p>Practical AI tools for African businesses, built on the same platform.</p></div><span className="quiet-label">Future offering</span></div>
+</section>
+
+<section className="section container">
+ <div className="feature-v2">
+  <figure className="feature-media" data-reveal><img src="/media/founder-1672.webp" width="1672" height="941" alt="Illustrative portrait of an entrepreneur, lit in Pamsika blue" loading="lazy" style={{objectPosition:'70% center'}}/><figcaption className="glass">Brand story · Illustrative concept</figcaption></figure>
+  <div className="feature-copy-v2" data-reveal>
+   <Eyebrow>More than a good-looking ad</Eyebrow>
+   <h2>Built around <span className="accent-text">your</span> business.</h2>
+   <p className="lead">A clear idea, the right creative expression and a practical path to market. Technology expands the possibilities. Human judgment gives it purpose.</p>
+   <div className="actions"><ButtonLink href="/services" variant="glass">Explore our services</ButtonLink></div>
+  </div>
+ </div>
+ <div className="service-grid" style={{marginTop:56}}>
+  {[{Icon:Lightbulb,n:'01',title:'Find the idea',text:'Turn your business challenge into a focused creative direction. We start with your audience and the action you want them to take.'},{Icon:Clapperboard,n:'02',title:'Make it matter',text:'Bring the idea to life through film, design and content, with AI-assisted production guided by people.'},{Icon:TrendingUp,n:'03',title:'Move it forward',text:'Shape the campaign for the places your audience spends time, with formats and messaging that work together.'}].map(({Icon,n,title,text})=><article className="service-card" key={n} data-reveal><div className="card-top"><Icon size={28} strokeWidth={1.6} aria-hidden/><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}
+ </div>
+</section>
+
+<section className="section surface-secondary">
+ <div className="container">
+  <SectionHeading eyebrow="Creative Market" title="What does your idea need?" description="Start with a specific discipline, or combine several around your project." action={<TextLink href="/creative-market">All disciplines</TextLink>}/>
+  <div className="discipline-grid">
+   {marketServices.map(service=>{const Icon=disciplineIcons[service.slug]??Camera;return <a className="discipline-tile glass lift" href={`/creative-market/${service.slug}/`} key={service.slug} data-reveal data-track={`Discipline: ${service.title}`}><span className="tile-top"><Icon size={26} strokeWidth={1.5} aria-hidden/><ArrowUpRight size={20} aria-hidden/></span><span><strong>{service.title}</strong><small>{service.summary}</small></span></a>})}
+  </div>
+ </div>
+</section>
+
+<section className="section container">
+ <div className="answers-v2">
+  <div data-reveal>
+   <Eyebrow>Straight answers</Eyebrow>
+   <h2 style={{marginTop:22}}>Ask in your own words.</h2>
+   <p className="lead" style={{marginTop:22}}>The questions businesses ask us most, answered plainly. Search {faqs.length} answers or let the guide point you to the right next step.</p>
+   <a className="ask-box glass lift" href="/faq/" data-track="Ask a question (home)"><MessageCircleQuestion size={22} aria-hidden/><span>How much does a campaign cost?</span><ArrowUpRight size={18} aria-hidden/></a>
+  </div>
+  <div className="answer-list" data-reveal>
+   {homeAnswers.map((item,i)=><details className="glass" key={item.id} open={i===0}><summary>{item.question}<Plus size={20} aria-hidden/></summary><p>{item.answer}</p></details>)}
+  </div>
+ </div>
+</section>
+
+<CTA/>
 </>}
-function LinkRow({title,state,href}:{title:string;state:string;href:string}){return <a href={href}><span>{title}</span><span>{state}<ArrowUpRight size={18} aria-hidden/></span></a>}

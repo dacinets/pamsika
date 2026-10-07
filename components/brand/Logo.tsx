@@ -5,7 +5,7 @@ const marks = {
  adlab: {prefix:'pamsika-adlab-lockup',width:1898.6455078125,height:451,min:220,label:'Pamsika AdLab'},
  studio: {prefix:'pamsika-ai-business-studio-lockup',width:2366.759765625,height:451,min:220,label:'Pamsika AI Business Studio'},
 };
-export function Logo({kind='wordmark',dark=false,width=152}:{kind?:keyof typeof marks;dark?:boolean;width?:number}) {
+export function Logo({kind='wordmark',dark=true,width=152}:{kind?:keyof typeof marks;dark?:boolean;width?:number}) {
  const mark=marks[kind], size=Math.max(width,mark.min);
  return <span className={`logo-frame ${dark?'logo-frame-dark':''}`} style={{padding:size*60/mark.width,'--logo-width':`${size}px`} as CSSProperties}>
  {/* Production SVGs are immutable. Intrinsic aspect ratios come from the supplied viewBox. */}
