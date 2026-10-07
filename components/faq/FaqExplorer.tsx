@@ -5,6 +5,7 @@ import {Accordion,AccordionItem,AccordionTrigger,AccordionContent} from '@/compo
 import {Input} from '@/components/ui/input';
 import {SiteLink as Link} from '@/components/site/SiteLink';
 import {faqs,faqTopics,guidePaths,searchFaq} from '@/lib/faq.mjs';
+import {track} from '@/lib/analytics';
 export function FaqExplorer(){
  const [hydrated,setHydrated]=useState(false);
  const [mode,setMode]=useState('answers'),[query,setQuery]=useState(''),[topic,setTopic]=useState('All topics'),[expanded,setExpanded]=useState<string[]>(['what-is-pamsika']),[goal,setGoal]=useState('');
@@ -13,7 +14,8 @@ export function FaqExplorer(){
  function revealAnswer(id:string){setMode('answers');setQuery('');setTopic('All topics');answerTarget.current=id;setExpanded([id]);}
  useEffect(()=>{setHydrated(true);function readLocation(){let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch{return;}if(faqs.some(item=>item.id===id)){revealAnswer(id);}else{setMode(new URLSearchParams(location.search).get('view')==='guide'?'guide':'answers');}}readLocation();window.addEventListener('hashchange',readLocation);window.addEventListener('popstate',readLocation);return()=>{window.removeEventListener('hashchange',readLocation);window.removeEventListener('popstate',readLocation)}},[]);
  useEffect(()=>{if(answerTarget.current){const id=answerTarget.current;answerTarget.current='';requestAnimationFrame(()=>document.getElementById(id)?.scrollIntoView({block:'start'}));}},[expanded]);
- function search(value:string,selectedTopic=topic){setQuery(value);setExpanded(value.trim()?searchFaq(value,selectedTopic).slice(0,1).map(item=>item.id):[]);}
+ const searchTimer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
+ function search(value:string,selectedTopic=topic){clearTimeout(searchTimer.current);const term=value.trim().toLowerCase();if(term.length>2)searchTimer.current=setTimeout(()=>track('faq_search',term),1500);setQuery(value);setExpanded(value.trim()?searchFaq(value,selectedTopic).slice(0,1).map(item=>item.id):[]);}
  function suggested(value:string){setTopic('All topics');search(value,'All topics');}
  return <div className="faq-workspace">
  <div className="faq-mode-switch" role="group" aria-label="Choose how to explore"><button type="button" aria-pressed={mode==='answers'} onClick={()=>setMode('answers')}>Find an answer</button><button type="button" aria-pressed={mode==='guide'} onClick={()=>setMode('guide')}>Help me choose<ArrowRight size={18} aria-hidden/></button></div>
