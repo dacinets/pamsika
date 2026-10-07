@@ -1,0 +1,7 @@
+# PHP API hardening (Apache / LiteSpeed on Bluehost)
+Options -Indexes
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Robots-Tag "noindex, nofollow"
+    Header always set Cache-Control "no-store"
+</IfModule>
