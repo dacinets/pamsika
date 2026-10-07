@@ -2,7 +2,7 @@
 import {useCallback,useEffect,useMemo,useState} from 'react';
 import {Area,AreaChart,CartesianGrid,ResponsiveContainer,Tooltip,XAxis,YAxis} from 'recharts';
 import {ArrowDownRight,ArrowUpRight,Minus,RefreshCw} from 'lucide-react';
-import {api,ApiError,KIND_LABELS,STATUS_LABELS,type Stats,type Totals} from './api';
+import {api,ApiError,KIND_LABELS,STATUS_LABELS,type Stats} from './api';
 
 const RANGES=[[7,'7 days'],[30,'30 days'],[90,'90 days'],[365,'12 months']] as const;
 const METRICS={visitors:{label:'Visitors',color:'#3d86d6'},pageviews:{label:'Page views',color:'#3d86d6'},enquiries:{label:'Enquiries',color:'#e56f00'}} as const;
