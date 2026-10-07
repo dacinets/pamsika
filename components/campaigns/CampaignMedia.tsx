@@ -1,0 +1,4 @@
+'use client';
+import {useState} from 'react';
+import type {Campaign} from '@/lib/campaigns';
+export function CampaignMedia({campaign}:{campaign:Campaign}){const[failed,setFailed]=useState(false);return <figure className="campaign-media">{campaign.video&&!failed?<><video controls playsInline preload="none" poster={`/media/${campaign.image}-1672.webp`} onError={()=>setFailed(true)} aria-label={campaign.title}><source src={campaign.video.src} type="video/mp4"/><track kind="captions" src={campaign.video.captions} srcLang="en" label="English" default/></video><details><summary>Read the transcript</summary><p>{campaign.video.transcript}</p></details></>:<img src={`/media/${campaign.image}-1672.webp`} width="1672" height="941" alt={campaign.alt} fetchPriority="high"/>}<figcaption>{failed?'The film could not load. Please try again later.':'Illustrative creative direction · AI-generated concept imagery'}</figcaption></figure>}

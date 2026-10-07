@@ -1,0 +1,17 @@
+:root{
+--radius-none:0px;
+--radius-xs:2px;   /* tags, tiny chips, input affordances */
+--radius-sm:4px;   /* inputs, buttons, badges */
+--radius-md:8px;   /* cards, dropdowns, toasts */
+--radius-lg:12px;  /* media tiles, modals, panels */
+--radius-xl:20px;  /* hero media, feature blocks */
+--radius-full:999px; /* pills, avatars, icon-only toggles */
+
+--border-width-hairline:1px;
+--border-width-strong:1.5px;
+--border-width-emphasis:2px;
+--focus-ring-width:2px;
+--focus-ring-offset-width:2px;
+--divider:1px solid var(--border-default);
+--divider-subtle:1px solid var(--border-subtle);
+}

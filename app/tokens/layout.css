@@ -1,0 +1,27 @@
+:root{
+/* breakpoints (documented; media queries use the literals) */
+--bp-xs:360px;--bp-sm:390px;--bp-md:768px;--bp-lg:1024px;--bp-xl:1280px;--bp-2xl:1440px;--bp-3xl:1728px;
+
+--container-max:1280px;      /* standard product + marketing content */
+--container-wide:1440px;     /* dashboards, marketplace grids */
+--container-cinematic:1728px;/* AdLab full-bleed editorial */
+--container-narrow:800px;    /* forms, dialogs */
+--measure-reading:68ch; /* @kind other */      /* editorial body copy */
+--measure-short:52ch; /* @kind other */        /* lead paragraphs, hero subcopy */
+
+--gutter-mobile:16px;--gutter-tablet:24px;--gutter-desktop:32px;--gutter-wide:40px;
+/* --gutter-page is the one to consume in page shells: it resolves to the
+   right gutter for the current viewport. The four named gutters above stay
+   fixed so they can still be referenced by name. */
+--gutter-page:var(--gutter-desktop);
+--grid-columns-mobile:4; /* @kind other */--grid-columns-tablet:8; /* @kind other */--grid-columns-desktop:12; /* @kind other */
+
+--header-height:72px;--header-height-scrolled:60px;--header-height-mobile:60px;
+--sidebar-width:264px;--sidebar-width-collapsed:72px;
+--touch-target-min:44px;
+--section-gap:72px;
+--z-base:0; /* @kind other */--z-sticky:100; /* @kind other */--z-header:200; /* @kind other */--z-dropdown:300; /* @kind other */--z-overlay:400; /* @kind other */--z-modal:500; /* @kind other */--z-toast:600; /* @kind other */
+}
+
+@media (max-width:1023px){:root{--gutter-page:var(--gutter-tablet);--section-gap:56px}}
+@media (max-width:767px){:root{--gutter-page:var(--gutter-mobile);--section-gap:44px;--sidebar-width:100%}}

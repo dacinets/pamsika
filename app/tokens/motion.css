@@ -1,0 +1,28 @@
+:root{
+/* SPARK — instant acknowledgement (hover, focus, press) */
+--duration-fast:120ms; /* @kind other */
+/* CONNECT — standard UI state change (dropdown, tab, toggle) */
+--duration-standard:200ms; /* @kind other */
+/* MOVE — expressive transitions (cards, reveals, nav) */
+--duration-expressive:320ms; /* @kind other */
+/* REVEAL — cinematic entrances, page & video transitions */
+--duration-slow:520ms; /* @kind other */
+--duration-cinematic:800ms; /* @kind other */
+
+--ease-standard:cubic-bezier(.2,0,0,1); /* @kind other */
+--ease-entrance:cubic-bezier(.16,1,.3,1); /* @kind other */
+--ease-exit:cubic-bezier(.4,0,1,1); /* @kind other */
+--ease-move:cubic-bezier(.65,0,.35,1); /* @kind other */
+--ease-spark:cubic-bezier(.34,1.4,.64,1); /* @kind other */
+
+--transition-hover:all var(--duration-fast) var(--ease-standard); /* @kind other */
+--transition-ui:all var(--duration-standard) var(--ease-standard); /* @kind other */
+--transition-reveal:opacity var(--duration-slow) var(--ease-entrance),transform var(--duration-slow) var(--ease-entrance); /* @kind other */
+
+--lift-hover:-2px; /* @kind spacing */
+--lift-card:-4px; /* @kind spacing */
+}
+@media (prefers-reduced-motion:reduce){
+:root{--duration-fast:1ms; /* @kind other */--duration-standard:1ms; /* @kind other */--duration-expressive:1ms; /* @kind other */--duration-slow:1ms; /* @kind other */--duration-cinematic:1ms; /* @kind other */--lift-hover:0px;--lift-card:0px}
+*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+}

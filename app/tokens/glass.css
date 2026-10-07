@@ -1,0 +1,94 @@
+/* ============================================================
+   PAMSIKA GLASS — controlled transparency system (v1.1)
+   Cinematic clarity, intelligent depth. Three semantic variants:
+   light (floating utility over light UI), dark (derived from
+   Pamsika Dark), brand (Pamsika Blue tint, for brand moments).
+   Every value below has an opaque fallback that is swapped in
+   automatically where backdrop-filter is unsupported or the user
+   has asked for reduced transparency. Consume the semantic
+   --glass-* tokens; never hand-roll rgba + blur in a component.
+   ============================================================ */
+:root{
+/* shared */
+--glass-blur:18px;
+--glass-saturation:135%;
+--glass-filter:saturate(var(--glass-saturation)) blur(var(--glass-blur)); /* @kind other */
+--glass-radius:var(--radius-lg);
+--glass-focus-ring:var(--pam-blue-500);
+
+/* Glass Light — floating utility surfaces on light interfaces */
+--glass-light-bg:rgba(255,255,255,.76);
+--glass-light-fallback:#F4F6FA;
+--glass-light-border:rgba(17,24,39,.12);
+--glass-light-highlight:rgba(255,255,255,.72);
+--glass-light-text:var(--neutral-900);
+--glass-light-text-muted:var(--neutral-550);
+--glass-light-shadow:0 1px 2px rgba(17,24,39,.06),0 12px 32px -12px rgba(17,24,39,.22);
+
+/* Glass Dark — derived from Pamsika Dark */
+--glass-dark-bg:rgba(17,24,39,.64);
+--glass-dark-fallback:#161E2C;
+--glass-dark-border:rgba(255,255,255,.14);
+--glass-dark-highlight:rgba(255,255,255,.10);
+--glass-dark-text:#F3F5F9;
+--glass-dark-text-muted:rgba(255,255,255,.74);
+--glass-dark-shadow:0 2px 4px rgba(4,7,13,.34),0 18px 44px -16px rgba(4,7,13,.62);
+
+/* Glass Brand — Pamsika Blue tinted, for brand and hero moments */
+--glass-brand-bg:rgba(0,90,189,.12);
+--glass-brand-fallback:#E4EDF9;
+--glass-brand-border:rgba(0,90,189,.28);
+--glass-brand-highlight:rgba(255,255,255,.46);
+--glass-brand-text:var(--neutral-900);
+--glass-brand-text-muted:var(--neutral-600);
+--glass-brand-shadow:0 1px 2px rgba(0,45,95,.08),0 14px 36px -14px rgba(0,45,95,.28);
+}
+
+/* Dark theme: light glass would strobe on a dark field, so it is
+   re-derived rather than kept white. */
+[data-theme="dark"]{
+--glass-light-bg:rgba(35,47,66,.62);
+--glass-light-fallback:#232F42;
+--glass-light-border:rgba(255,255,255,.16);
+--glass-light-highlight:rgba(255,255,255,.08);
+--glass-light-text:#F3F5F9;
+--glass-light-text-muted:rgba(255,255,255,.74);
+--glass-light-shadow:var(--glass-dark-shadow);
+--glass-brand-bg:rgba(47,128,214,.18);
+--glass-brand-fallback:#152238;
+--glass-brand-border:rgba(102,162,228,.36);
+--glass-brand-highlight:rgba(255,255,255,.08);
+--glass-brand-text:#F3F5F9;
+--glass-brand-text-muted:rgba(255,255,255,.74);
+--glass-focus-ring:var(--pam-blue-300);
+}
+
+/* Fallback 1 — no backdrop-filter support: opaque surfaces. */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+:root,[data-theme="dark"]{
+--glass-filter:none; /* @kind other */
+--glass-light-bg:var(--glass-light-fallback);
+--glass-dark-bg:var(--glass-dark-fallback);
+--glass-brand-bg:var(--glass-brand-fallback);
+}}
+
+/* Fallback 2 — user asks for less transparency: opaque, borders held. */
+@media (prefers-reduced-transparency:reduce){
+:root,[data-theme="dark"]{
+--glass-filter:none; /* @kind other */
+--glass-light-bg:var(--glass-light-fallback);
+--glass-dark-bg:var(--glass-dark-fallback);
+--glass-brand-bg:var(--glass-brand-fallback);
+}}
+
+/* Fallback 3 — forced/high contrast: opaque plus a hard edge. */
+@media (forced-colors:active),(prefers-contrast:more){
+:root,[data-theme="dark"]{
+--glass-filter:none; /* @kind other */
+--glass-light-bg:var(--glass-light-fallback);
+--glass-dark-bg:var(--glass-dark-fallback);
+--glass-brand-bg:var(--glass-brand-fallback);
+--glass-light-border:var(--neutral-700);
+--glass-dark-border:#FFFFFF;
+--glass-brand-border:var(--pam-blue-700);
+}}

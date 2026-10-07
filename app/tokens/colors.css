@@ -1,0 +1,161 @@
+:root{
+/* ---- Primitive: brand ---- */
+--pam-blue-50:#e8f1fb;--pam-blue-100:#cbe0f6;--pam-blue-200:#9cc3ee;--pam-blue-300:#66a2e4;
+--pam-blue-400:#2f80d6;--pam-blue-500:#005ABD;--pam-blue-600:#004ea5;--pam-blue-700:#003f86;
+--pam-blue-800:#003068;--pam-blue-900:#00234c;
+--pam-orange-50:#fff3e6;--pam-orange-100:#ffe1c2;--pam-orange-200:#ffc68a;--pam-orange-300:#ffa94d;
+--pam-orange-400:#ff9224;--pam-orange-500:#FF7A00;--pam-orange-600:#e06a00;--pam-orange-700:#b85600;
+--pam-orange-800:#8f4300;--pam-orange-900:#6b3200;
+--pam-teal-50:#e6f6f6;--pam-teal-100:#c2ebeb;--pam-teal-200:#8ddada;--pam-teal-300:#4ec4c4;
+--pam-teal-400:#1aacac;--pam-teal-500:#00908F;--pam-teal-600:#007b7a;--pam-teal-700:#046262;
+--pam-teal-800:#064c4c;--pam-teal-900:#073838;
+--pam-green-50:#e7f6ef;--pam-green-100:#c3e9d7;--pam-green-200:#8ed6b4;--pam-green-300:#54bd8d;
+--pam-green-400:#22a26e;--pam-green-500:#0E8A5A;--pam-green-600:#0b744c;--pam-green-700:#095c3d;
+--pam-green-800:#07472f;--pam-green-900:#053423;
+--pam-red-50:#fdecec;--pam-red-100:#fbd0d0;--pam-red-200:#f5a5a5;--pam-red-300:#ec7373;
+--pam-red-400:#dd4646;--pam-red-500:#C62828;--pam-red-600:#a91f1f;--pam-red-700:#8a1919;
+--pam-red-800:#6b1414;--pam-red-900:#4f0f0f;
+--pam-amber-500:#8F4E00;--pam-amber-100:#ffeccc;--pam-amber-50:#fff7ec;
+
+/* ---- Primitive: neutrals (tinted toward Pamsika Dark #111827) ---- */
+--neutral-0:#FFFFFF;--neutral-25:#FBFCFD;--neutral-50:#F7F8FA;--neutral-100:#EFF1F5;
+--neutral-200:#E2E6ED;--neutral-300:#CBD2DE;--neutral-400:#9AA4B6;--neutral-500:#6B7688;--neutral-550:#626D7F;
+--neutral-600:#4D586B;--neutral-700:#374151;--neutral-800:#232F42;--neutral-900:#111827;
+--neutral-950:#0A0F1A;
+
+/* ---- Semantic: brand ---- */
+--color-brand-primary:var(--pam-blue-500);
+--color-brand-primary-strong:var(--pam-blue-700);
+--color-brand-accent:var(--pam-orange-500);
+--color-brand-accent-strong:var(--pam-orange-700);
+--color-brand-dark:var(--neutral-900);
+--color-brand-on-primary:var(--neutral-0);
+
+/* ---- Semantic: product surfaces (v1.1) ----
+   Sub-brands are endorsed lockups, not independent brands. There is no
+   per-product identity colour: every product uses Pamsika Blue as its
+   interactive colour and Orange as its rationed accent. AdLab differs by
+   SURFACE (cinematic dark), not by hue. Teal and green are data/semantic
+   utilities only — see below — and never brand a product. */
+--color-product-accent:var(--pam-blue-500);
+--color-product-accent-quiet:var(--pam-blue-50);
+--color-adlab-accent:var(--pam-orange-500);
+--color-adlab-surface:var(--neutral-950);
+
+/* Deprecated in v1.1 — kept as aliases so v1.0 consumers do not break.
+   They now resolve to the approved brand colours. Remove in v2. */
+--color-studio-accent:var(--color-product-accent);
+--color-studio-accent-quiet:var(--color-product-accent-quiet);
+--color-marketplace-accent:var(--color-product-accent);
+--color-marketplace-accent-quiet:var(--color-product-accent-quiet);
+
+/* ---- Semantic: surfaces ---- */
+--surface-primary:var(--neutral-0);
+--surface-secondary:var(--neutral-50);
+--surface-tertiary:var(--neutral-100);
+--surface-elevated:var(--neutral-0);
+--surface-inverse:var(--neutral-900);
+--surface-brand:var(--pam-blue-500);
+--surface-brand-quiet:var(--pam-blue-50);
+--surface-accent-quiet:var(--pam-orange-50);
+--surface-overlay:rgba(17,24,39,.60);
+--surface-scrim:linear-gradient(180deg,rgba(10,15,26,0) 0%,rgba(10,15,26,.15) 40%,rgba(10,15,26,.82) 100%);
+
+/* ---- Semantic: text ---- */
+--text-primary:var(--neutral-900);
+--text-secondary:var(--neutral-600);
+--text-muted:var(--neutral-550);
+--text-inverse:var(--neutral-0);
+--text-inverse-secondary:rgba(255,255,255,.72);
+--text-brand:var(--pam-blue-600);
+--text-accent:var(--pam-orange-800);
+--text-link:var(--pam-blue-600);
+--text-link-hover:var(--pam-blue-800);
+
+/* ---- Semantic: borders ---- */
+--border-subtle:var(--neutral-100);
+--border-default:var(--neutral-200);
+--border-strong:var(--neutral-300);
+--border-inverse:rgba(255,255,255,.16);
+--border-brand:var(--pam-blue-500);
+--border-focus:var(--pam-blue-500);
+
+/* ---- Semantic: interactive ---- */
+--interactive-default:var(--pam-blue-500);
+--interactive-hover:var(--pam-blue-600);
+--interactive-pressed:var(--pam-blue-700);
+--interactive-quiet-hover:var(--neutral-100);
+--interactive-quiet-pressed:var(--neutral-200);
+--interactive-disabled-bg:var(--neutral-100);
+--interactive-disabled-text:var(--neutral-400);
+--focus-ring:var(--pam-blue-500);
+--focus-ring-offset:var(--neutral-0);
+
+/* ---- Semantic: status ---- */
+--status-success:var(--pam-green-600);--status-success-bg:var(--pam-green-50);--status-success-border:var(--pam-green-200);
+--status-warning:var(--pam-amber-500);--status-warning-bg:var(--pam-amber-50);--status-warning-border:var(--pam-amber-100);
+--status-error:var(--pam-red-500);--status-error-bg:var(--pam-red-50);--status-error-border:var(--pam-red-200);
+--status-info:var(--pam-blue-500);--status-info-bg:var(--pam-blue-50);--status-info-border:var(--pam-blue-200);
+
+/* ---- Data visualization (ordered categorical) ----
+   Teal and green appear here and in status only. They are controlled
+   utility hues, not brand or sub-brand colours. Chart fills clear 3:1
+   against the surface; any label ON a teal or green fill uses the
+   -on-fill token, which is measured for 4.5:1. */
+--data-teal:var(--pam-teal-500);--data-teal-strong:var(--pam-teal-700);
+--data-green:var(--pam-green-500);--data-green-strong:var(--pam-green-700);
+--data-on-fill:var(--neutral-0);
+--chart-1:var(--pam-blue-500);--chart-2:var(--pam-orange-500);--chart-3:var(--pam-teal-500);
+--chart-4:var(--pam-blue-300);--chart-5:var(--pam-green-500);--chart-6:var(--neutral-400);
+--chart-grid:var(--neutral-200);--chart-axis:var(--neutral-400);
+--chart-positive:var(--pam-green-600);--chart-negative:var(--pam-red-500);
+}
+
+/* ================= DARK / CINEMATIC SURFACE =================
+   Applied with [data-theme="dark"]. Not an inversion: surfaces
+   are re-derived from Pamsika Dark, blue is lifted for contrast,
+   orange stays the single high-energy accent. */
+[data-theme="dark"]{
+--surface-primary:var(--neutral-950);
+--surface-secondary:#101725;
+--surface-tertiary:#18202f;
+--surface-elevated:#161E2C;
+--surface-inverse:var(--neutral-0);
+--surface-brand:var(--pam-blue-400);
+--surface-brand-quiet:rgba(47,128,214,.14);
+--surface-accent-quiet:rgba(255,122,0,.14);
+--surface-overlay:rgba(4,7,13,.72);
+
+--text-primary:#F3F5F9;
+--text-secondary:#AEB7C6;
+--text-muted:#7D8899;
+--text-inverse:var(--neutral-900);
+--text-inverse-secondary:rgba(17,24,39,.72);
+--text-brand:var(--pam-blue-200);
+--text-accent:var(--pam-orange-300);
+--text-link:var(--pam-blue-200);
+--text-link-hover:var(--pam-blue-100);
+
+--border-subtle:rgba(255,255,255,.07);
+--border-default:rgba(255,255,255,.13);
+--border-strong:rgba(255,255,255,.24);
+--border-inverse:rgba(17,24,39,.18);
+
+--interactive-default:var(--pam-blue-400);
+--interactive-hover:var(--pam-blue-300);
+--interactive-pressed:var(--pam-blue-200);
+--interactive-quiet-hover:rgba(255,255,255,.07);
+--interactive-quiet-pressed:rgba(255,255,255,.12);
+--interactive-disabled-bg:rgba(255,255,255,.07);
+--interactive-disabled-text:rgba(255,255,255,.32);
+--focus-ring:var(--pam-blue-300);
+--focus-ring-offset:var(--neutral-950);
+
+--status-success:#3ec98c;--status-success-bg:rgba(34,162,110,.14);--status-success-border:rgba(34,162,110,.36);
+--status-warning:#F0A93A;--status-warning-bg:rgba(240,169,58,.14);--status-warning-border:rgba(240,169,58,.36);
+--status-error:#F26B6B;--status-error-bg:rgba(221,70,70,.14);--status-error-border:rgba(221,70,70,.36);
+--status-info:#66a2e4;--status-info-bg:rgba(102,162,228,.14);--status-info-border:rgba(102,162,228,.36);
+
+--chart-grid:rgba(255,255,255,.10);--chart-axis:rgba(255,255,255,.34);
+--chart-1:var(--pam-blue-300);--chart-4:var(--pam-blue-100);
+}

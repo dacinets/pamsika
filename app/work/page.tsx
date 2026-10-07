@@ -1,0 +1,5 @@
+import {PageIntro,CTA} from '@/components/site/UI';
+import {CampaignGallery} from '@/components/campaigns/CampaignGallery';
+import {pageMetadata} from '@/lib/site';
+export const metadata=pageMetadata('Watch / Work','Explore Pamsika AdLab creative directions and find an idea to adapt for your business.','/work');
+export default function Work(){return <><div className="dark-section" data-theme="dark"><PageIntro eyebrow="Watch / Work" title="See the possibility." description="A place for ideas with somewhere to go. Explore the creative directions that could inspire your next campaign."/><section className="container section"><CampaignGallery/><div className="editorial-note"><h2>Ideas to start a conversation.</h2><p>These are illustrative concepts, created to explore creative possibilities. They are not commissioned client campaigns or finished films. Choose a direction and we’ll help you make something original for your business.</p></div></section></div><CTA title="See something that sparks an idea?" description="Tell us what caught your eye. We’ll explore how the thinking could work for your brand."/></>}

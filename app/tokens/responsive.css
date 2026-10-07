@@ -1,0 +1,80 @@
+/* ============================================================
+   PAMSIKA RESPONSIVE UTILITIES (v1.2)
+   The components are inline-styled, which paints fast but cannot
+   carry media queries. These classes are the escape hatch: they
+   use !important deliberately, to override an inline
+   grid-template-columns at a breakpoint. Nothing here changes the
+   visual direction — it only reflows it.
+   Validation widths: 390 / 768 / 1024 / 1440.
+   ============================================================ */
+
+/* Nothing may exceed the viewport. Grid and flex children default to
+   min-width:auto, which is what lets a wide card push the page out. */
+html{overflow-x:hidden}
+body{overflow-x:hidden;max-width:100%}
+.pam-grid>*,.pam-split>*,.pam-flex-wrap>*{min-width:0}
+img,svg,video{max-width:100%}
+
+/* ---- Page shell ---- */
+.pam-page{width:100%;max-width:100%;box-sizing:border-box;padding-left:var(--gutter-page);padding-right:var(--gutter-page)}
+
+/* ---- Responsive grids. Track counts collapse; gaps stay on the 4px scale. ---- */
+.pam-grid{display:grid !important}
+.pam-grid-4{grid-template-columns:repeat(4,minmax(0,1fr)) !important}
+.pam-grid-3{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+.pam-grid-2{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+@media (max-width:1279px){.pam-grid-4{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}
+@media (max-width:1023px){
+  .pam-grid-4,.pam-grid-3{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+@media (max-width:767px){
+  .pam-grid-4,.pam-grid-3,.pam-grid-2{grid-template-columns:minmax(0,1fr) !important}
+}
+
+/* ---- Asymmetric splits (content + rail, rail + content) ---- */
+.pam-split{display:grid !important}
+@media (max-width:1023px){
+  .pam-split{grid-template-columns:minmax(0,1fr) !important;gap:32px !important}
+  .pam-split-rail{position:static !important;top:auto !important}
+}
+
+/* ---- Rows that must wrap rather than overflow ---- */
+.pam-flex-wrap{flex-wrap:wrap !important}
+@media (max-width:767px){
+  .pam-sort-row{flex-direction:column !important;align-items:stretch !important}
+  .pam-sort-row>*{margin-left:0 !important;width:100% !important}
+}
+
+/* ---- Section rhythm shrinks with the viewport ---- */
+@media (max-width:1023px){.pam-section{padding-top:var(--section-gap) !important;padding-bottom:var(--section-gap) !important}}
+
+/* ---- Show/hide by breakpoint. Display, not visibility: hidden nav must
+        leave the tab order, not sit in it invisibly. ---- */
+.pam-only-desktop{display:flex}
+.pam-only-mobile{display:none}
+@media (max-width:900px){
+  .pam-only-desktop{display:none !important}
+  .pam-only-mobile{display:flex !important}
+}
+.pam-sidebar-desktop{display:flex}
+@media (max-width:1023px){.pam-sidebar-desktop{display:none !important}}
+
+/* ---- Mobile drawer for the Studio sidebar ---- */
+.pam-drawer-scrim{position:fixed;inset:0;z-index:var(--z-overlay);background:var(--surface-overlay);border:0;padding:0;cursor:pointer}
+.pam-drawer{position:fixed;inset:0 auto 0 0;z-index:var(--z-modal);width:min(300px,86vw);max-width:86vw;overflow-y:auto;box-shadow:var(--shadow-4);animation:pam-drawer-in var(--duration-standard) var(--ease-entrance)}
+@keyframes pam-drawer-in{from{transform:translateX(-100%)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.pam-drawer{animation-duration:1ms}}
+
+/* ---- Touch targets. The floor is 44px on coarse pointers, without
+        inflating dense desktop UI. ---- */
+@media (pointer:coarse){
+  button,[role="button"],a.pam-target,summary{min-height:var(--touch-target-min)}
+}
+
+/* ---- Type at small sizes: never below the readable floor ---- */
+@media (max-width:767px){
+  .pam-h1{font-size:clamp(32px,9vw,44px) !important}
+  .pam-h2{font-size:clamp(28px,7.5vw,36px) !important}
+  .pam-h3{font-size:clamp(24px,6.5vw,30px) !important}
+  .pam-display{font-size:clamp(36px,10vw,56px) !important}
+}

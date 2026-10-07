@@ -1,0 +1,4 @@
+import {SiteLink as Link} from '@/components/site/SiteLink';
+import {ArrowUpRight} from 'lucide-react';
+import type {Campaign} from '@/lib/campaigns';
+export function CampaignCard({campaign}:{campaign:Campaign}){return <article className="campaign-card"><Link href={`/work/${campaign.slug}`} className="campaign-image-link" aria-label={`Explore ${campaign.title}`}><img src={`/media/${campaign.image}-1280.webp`} srcSet={`/media/${campaign.image}-640.webp 640w, /media/${campaign.image}-1280.webp 1280w`} sizes="(max-width:767px) 100vw, 50vw" width="1672" height="941" loading="lazy" alt={campaign.alt}/><span className="campaign-open"><ArrowUpRight aria-hidden/></span><span className="concept-badge">Illustrative concept</span></Link><div className="campaign-info"><p className="eyebrow">{campaign.category}</p><h3><Link href={`/work/${campaign.slug}`}>{campaign.title}</Link></h3><p>{campaign.description}</p></div></article>}

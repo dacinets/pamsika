@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {searchFaq,faqs,guidePaths} from '../lib/faq.mjs';
+test('plain-language pricing question finds the pricing answer first',()=>assert.equal(searchFaq('How much will it cost?')[0]?.id,'pricing'));
+test('creator signup question finds application guidance',()=>assert.equal(searchFaq('How do I join as a creator?')[0]?.id,'join-as-creator'));
+test('AI chatbot question retrieves the actual available capability',()=>assert.equal(searchFaq('Is this an AI chatbot?')[0]?.id,'ai-tools'));
+test('categories combine with search instead of returning unrelated answers',()=>assert.equal(searchFaq('portfolio','Costs & process').length,0));
+test('unknown and stopword-only queries have no invented answer',()=>{assert.deepEqual(searchFaq('quantum pineapple spaceship'),[]);assert.deepEqual(searchFaq('how is the'),[])});
+test('empty search returns published questions in the selected topic',()=>{assert.ok(searchFaq('','Creative Market').length>0);assert.ok(searchFaq('','Creative Market').every(q=>q.topic==='Creative Market'))});
+test('question IDs are unique and guide recommendations reference published questions',()=>{assert.equal(new Set(faqs.map(q=>q.id)).size,faqs.length);for(const path of guidePaths)assert.ok(faqs.some(q=>q.id===path.faq))});
+test('a first visitor can ask what Pamsika does',()=>assert.equal(searchFaq('What is Pamsika?')[0]?.id,'what-is-pamsika'));

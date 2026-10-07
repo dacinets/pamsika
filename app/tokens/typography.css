@@ -1,0 +1,75 @@
+:root{
+/* weights */
+--fw-regular:400; /* @kind font */
+--fw-medium:500; /* @kind font */
+--fw-semibold:600; /* @kind font */
+--fw-bold:700; /* @kind font */
+--fw-extrabold:800; /* @kind font */
+/* tracking */
+--tracking-tighter:-0.03em;--tracking-tight:-0.02em;--tracking-snug:-0.01em;
+--tracking-normal:0em;--tracking-wide:0.02em;--tracking-wider:0.08em;--tracking-widest:0.14em; /* @kind font */
+/* leading */
+--leading-none:1;--leading-tight:1.12;--leading-snug:1.25;--leading-normal:1.45;--leading-relaxed:1.65; /* @kind font */
+
+/* ---- Role tokens: MOBILE-FIRST base values (<=767px) ---- */
+--type-display-xl-size:2.5rem;--type-display-xl-line:1.06; /* @kind font */
+--type-display-l-size:2.125rem;--type-display-l-line:1.08; /* @kind font */
+--type-h1-size:1.875rem;--type-h1-line:1.14; /* @kind font */
+--type-h2-size:1.625rem;--type-h2-line:1.2; /* @kind font */
+--type-h3-size:1.375rem;--type-h3-line:1.26; /* @kind font */
+--type-h4-size:1.25rem;--type-h4-line:1.32; /* @kind font */
+--type-h5-size:1.125rem;--type-h5-line:1.38; /* @kind font */
+--type-h6-size:1rem;--type-h6-line:1.42; /* @kind font */
+--type-lead-size:1.0625rem;--type-lead-line:1.55; /* @kind font */
+--type-body-lg-size:1.0625rem;--type-body-lg-line:1.6; /* @kind font */
+--type-body-size:1rem;--type-body-line:1.65; /* @kind font */
+--type-body-sm-size:0.875rem;--type-body-sm-line:1.6; /* @kind font */
+--type-caption-size:0.8125rem;--type-caption-line:1.5; /* @kind font */
+--type-eyebrow-size:0.75rem;--type-eyebrow-line:1.2; /* @kind font */
+--type-label-size:0.875rem;--type-label-line:1.4; /* @kind font */
+--type-button-size:0.9375rem;--type-button-line:1; /* @kind font */
+--type-nav-size:1rem;--type-nav-line:1.2; /* @kind font */
+--type-form-label-size:0.875rem;--type-form-label-line:1.4; /* @kind font */
+--type-helper-size:0.8125rem;--type-helper-line:1.5; /* @kind font */
+--type-meta-size:0.75rem;--type-meta-line:1.4; /* @kind font */
+}
+/* Tablet 768-1023 */
+@media (min-width:768px){:root{
+--type-display-xl-size:3.5rem;--type-display-l-size:2.875rem;--type-h1-size:2.375rem;--type-h2-size:2rem;
+--type-h3-size:1.625rem;--type-h4-size:1.375rem;--type-h5-size:1.1875rem;--type-h6-size:1.0625rem;
+--type-lead-size:1.1875rem;--type-body-lg-size:1.125rem;--type-nav-size:0.9375rem;
+}}
+/* Desktop 1024+ */
+@media (min-width:1024px){:root{
+--type-display-xl-size:4.75rem;--type-display-xl-line:1.04; /* @kind font */
+--type-display-l-size:3.75rem;--type-display-l-line:1.06; /* @kind font */
+--type-h1-size:3rem;--type-h1-line:1.1; /* @kind font */
+--type-h2-size:2.375rem;--type-h2-line:1.15; /* @kind font */
+--type-h3-size:1.875rem;--type-h3-line:1.2; /* @kind font */
+--type-h4-size:1.5rem;--type-h4-line:1.3; /* @kind font */
+--type-h5-size:1.25rem;--type-h5-line:1.35; /* @kind font */
+--type-h6-size:1.0625rem;
+--type-lead-size:1.25rem;--type-lead-line:1.6; /* @kind font */
+}}
+
+/* ---- Utility classes (marketing + product share one scale) ---- */
+.pam-display-xl{font-family:var(--font-display);font-weight:var(--fw-bold);font-size:var(--type-display-xl-size);line-height:var(--type-display-xl-line);letter-spacing:var(--tracking-tighter)}
+.pam-display-l{font-family:var(--font-display);font-weight:var(--fw-bold);font-size:var(--type-display-l-size);line-height:var(--type-display-l-line);letter-spacing:var(--tracking-tighter)}
+.pam-h1{font-family:var(--font-display);font-weight:var(--fw-bold);font-size:var(--type-h1-size);line-height:var(--type-h1-line);letter-spacing:var(--tracking-tight)}
+.pam-h2{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:var(--type-h2-size);line-height:var(--type-h2-line);letter-spacing:var(--tracking-tight)}
+.pam-h3{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:var(--type-h3-size);line-height:var(--type-h3-line);letter-spacing:var(--tracking-snug)}
+.pam-h4{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:var(--type-h4-size);line-height:var(--type-h4-line);letter-spacing:var(--tracking-snug)}
+.pam-h5{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:var(--type-h5-size);line-height:var(--type-h5-line);letter-spacing:var(--tracking-normal)}
+.pam-h6{font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:var(--type-h6-size);line-height:var(--type-h6-line);letter-spacing:var(--tracking-normal)}
+.pam-lead{font-family:var(--font-body);font-weight:var(--fw-regular);font-size:var(--type-lead-size);line-height:var(--type-lead-line);letter-spacing:var(--tracking-snug);color:var(--text-secondary)}
+.pam-body-lg{font-family:var(--font-body);font-size:var(--type-body-lg-size);line-height:var(--type-body-lg-line)}
+.pam-body{font-family:var(--font-body);font-size:var(--type-body-size);line-height:var(--type-body-line)}
+.pam-body-sm{font-family:var(--font-body);font-size:var(--type-body-sm-size);line-height:var(--type-body-sm-line)}
+.pam-caption{font-family:var(--font-body);font-size:var(--type-caption-size);line-height:var(--type-caption-line);color:var(--text-muted)}
+.pam-eyebrow{font-family:var(--font-body);font-weight:var(--fw-semibold);font-size:var(--type-eyebrow-size);line-height:var(--type-eyebrow-line);letter-spacing:var(--tracking-widest);text-transform:uppercase}
+.pam-label{font-family:var(--font-body);font-weight:var(--fw-medium);font-size:var(--type-label-size);line-height:var(--type-label-line)}
+.pam-button{font-family:var(--font-body);font-weight:var(--fw-semibold);font-size:var(--type-button-size);line-height:var(--type-button-line);letter-spacing:var(--tracking-wide)}
+.pam-nav{font-family:var(--font-body);font-weight:var(--fw-medium);font-size:var(--type-nav-size);line-height:var(--type-nav-line)}
+.pam-form-label{font-family:var(--font-body);font-weight:var(--fw-medium);font-size:var(--type-form-label-size);line-height:var(--type-form-label-line);color:var(--text-primary)}
+.pam-helper{font-family:var(--font-body);font-size:var(--type-helper-size);line-height:var(--type-helper-line);color:var(--text-muted)}
+.pam-meta{font-family:var(--font-body);font-weight:var(--fw-medium);font-size:var(--type-meta-size);line-height:var(--type-meta-line);letter-spacing:var(--tracking-wide);color:var(--text-muted);font-variant-numeric:tabular-nums}

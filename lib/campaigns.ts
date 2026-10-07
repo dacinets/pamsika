@@ -1,0 +1,6 @@
+export type Campaign={slug:string;title:string;category:'Brand story'|'Product campaign';image:string;alt:string;description:string;idea:string;formats:string[];video?:{src:string;captions:string;transcript:string}};
+// Illustrative concepts, never represented as commissioned work or measured results.
+export const campaigns:Campaign[]=[
+ {slug:'made-of-ambition',title:'Made of ambition.',category:'Brand story',image:'founder',alt:'Illustrative portrait of a fashion entrepreneur in her studio',description:'Put the person behind the business at the centre of the story.',idea:'Every product starts with a person who saw a possibility. Follow the founder’s decisions, craft and ambition to give the audience a reason to care.',formats:['Brand film','Founder story','Social cutdowns']},
+ {slug:'a-fresh-perspective',title:'A fresh perspective.',category:'Product campaign',image:'citrus',alt:'Illustrative citrus beverage product still with dramatic light and condensation',description:'Make an everyday product feel like a moment worth choosing.',idea:'Lead with a single sensory truth: freshness. Use detail, light and a focused visual story to turn a simple product benefit into a distinctive campaign.',formats:['Product film','Launch creative','Vertical social']},
+];

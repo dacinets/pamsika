@@ -1,0 +1,24 @@
+:root{
+--space-0:0px;--space-0-5:2px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;
+--space-5:24px;--space-6:32px;--space-7:40px;--space-8:48px;--space-9:64px;--space-10:80px;
+--space-11:96px;--space-12:120px;--space-13:160px;
+
+/* component-level composition tokens */
+--space-inline-xs:var(--space-1);
+--space-inline-sm:var(--space-2);
+--space-inline-md:var(--space-3);
+--space-stack-sm:var(--space-2);
+--space-stack-md:var(--space-4);
+--space-stack-lg:var(--space-5);
+
+--padding-card-sm:var(--space-4);
+--padding-card:var(--space-5);
+--padding-card-lg:var(--space-6);
+--padding-field-x:var(--space-3);
+--padding-field-y:12px;
+
+--section-space-mobile:var(--space-10);
+--section-space-tablet:var(--space-11);
+--section-space-desktop:var(--space-12);
+--section-space-cinematic:var(--space-13);
+}
