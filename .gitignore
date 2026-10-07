@@ -46,3 +46,11 @@ next-env.d.ts
 /work/
 
 *.tsbuildinfo
+node_modules
+out/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+.env*.local
+private/pamsika-config.php
+tools/dev-data/
