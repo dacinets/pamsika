@@ -2,8 +2,9 @@ import {ButtonLink,CTA,Eyebrow,SectionHeading,TextLink} from '@/components/site/
 import {Logo} from '@/components/brand/Logo';
 import {StockImage} from '@/components/site/StockImage';
 import {HeroShowcase} from '@/components/home/HeroShowcase';
+import {HeroFilm} from '@/components/home/HeroFilm';
 import {JsonLd} from '@/components/site/StructuredData';
-import {ArrowUpRight,AudioLines,Camera,Clapperboard,Lightbulb,MessageCircleQuestion,MoveUpRight,PenTool,Plus,Sparkles,TrendingUp,Type,Users,MapPin,ShieldCheck} from 'lucide-react';
+import {ArrowUpRight,AudioLines,Camera,Clapperboard,Lightbulb,MessageCircleQuestion,MoveUpRight,PenTool,Plus,TrendingUp,Type} from 'lucide-react';
 import {marketServices} from '@/lib/market-services.mjs';
 import {faqs} from '@/lib/faq.mjs';
 import {pageMetadata} from '@/lib/site';
@@ -16,20 +17,21 @@ const homeAnswers=['what-is-pamsika','choose-an-offering','pricing','ai-producti
 export default function Home(){return <>
 <JsonLd data={{'@context':'https://schema.org','@type':'FAQPage',mainEntity:homeAnswers.map(item=>({'@type':'Question',name:item.question,acceptedAnswer:{'@type':'Answer',text:item.answer}}))}}/>
 
-<section className="hero-v2">
- <div className="container hero-v2-grid">
-  <div>
-   <p className="eyebrow eyebrow-pill" data-rise="1">African ambition. Amplified.</p>
-   <h1 data-rise="2"><span className="line">Ideas that</span><span className="line"><span className="accent-text">move</span> <span className="blue-text">business.</span></span></h1>
-   <p className="lead" data-rise="3">Your ambition deserves a bigger stage. Pamsika brings creativity, technology and local intelligence together to help your business make its next move.</p>
-   <div className="actions" data-rise="4"><ButtonLink href="/start-a-campaign" track="Start a campaign (hero)">Start a campaign</ButtonLink><ButtonLink href="/faq?view=guide" variant="glass" arrow={false} track="Help me choose (hero)"><Sparkles size={16} aria-hidden/>Help me choose</ButtonLink></div>
-   <div className="hero-proof" data-rise="5"><span><MapPin size={15} aria-hidden/>Malawian creative focus</span><span><Sparkles size={15} aria-hidden/>AI-assisted production</span><span><Users size={15} aria-hidden/>Human creative direction</span><span><ShieldCheck size={15} aria-hidden/>Scope agreed first</span></div>
-  </div>
-  <div className="hero-stage" data-rise="3"><HeroShowcase/></div>
- </div>
-</section>
+<HeroFilm/>
 
 <div className="marquee" aria-hidden="true"><div className="marquee-track">{[0,1].flatMap(copy=>['Business meets possibility','Strategy','Creativity','Technology','Culture','Malawian stories','World-class commercials'].map(word=><span key={word+copy}>{word}</span>))}</div></div>
+
+<section className="section container story-section">
+ <div className="story-grid">
+  <div data-reveal>
+   <Eyebrow>How Pamsika works</Eyebrow>
+   <h2 style={{marginTop:22}}>From one idea to a <span className="accent-text">business that moves.</span></h2>
+   <p className="lead">Bring the ambition. Creative Market finds the craft it needs, AdLab turns it into a campaign, and the work goes out to the people who matter to your business.</p>
+   <div className="actions" style={{marginTop:32}}><ButtonLink href="/services" variant="glass">Explore our services</ButtonLink></div>
+  </div>
+  <div data-reveal><HeroShowcase/></div>
+ </div>
+</section>
 
 <section className="section container" id="our-offerings">
  <SectionHeading eyebrow="One platform. Growing possibilities." title="Start with the idea. Grow from there." description="Two ways to move your business forward: AdLab for a campaign from idea to execution, and Creative Market for the creative skills your project needs."/>
