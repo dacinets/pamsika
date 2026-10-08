@@ -1,126 +1,135 @@
 import type {CSSProperties} from 'react';
-import {ButtonLink,CTA,TextLink} from '@/components/site/UI';
+import {ButtonLink,TextLink} from '@/components/site/UI';
 import {StockImage} from '@/components/site/StockImage';
 import {Breadcrumbs} from '@/components/site/StructuredData';
 import {Scrub} from '@/components/why/Scrub';
 import {pageMetadata} from '@/lib/site';
 
-export const metadata=pageMetadata('Why Pamsika','Why Pamsika exists: African ambition deserves a bigger stage. Creativity, technology and local intelligence, working for the businesses moving Africa forward.','/why-pamsika');
+export const metadata=pageMetadata('Why Pamsika','Local talent. Greater possibility. Pamsika exists to elevate Malawi’s creative economy by connecting local talent with world-class creative standards.','/why-pamsika');
 
-const MANIFESTO='Great businesses across Africa are built on grit, taste and local knowledge. Yet the ideas, the creative quality and the technology that make a business impossible to ignore can feel out of reach. Pamsika exists to close that gap.';
-const HIGHLIGHT=new Set(['close','that','gap.']);
+const BELIEF='When businesses tell stronger stories, and creators have opportunities to contribute, more becomes possible for both.';
+const HOT=new Set(['both.']);
 
-const PRINCIPLES:[string,string,string,string][]=[
- ['01','Business comes first','Creative work has a job to do. We start with your goals and keep them in view.','strategy-session'],
- ['02','Culture has meaning','Local understanding shapes the story. We aim for relevance without shortcuts or stereotypes.','market-day'],
- ['03','People lead technology','Tools expand what is possible. Human judgment keeps the work purposeful, credible and clear.','interview-shoot'],
+/** Eight reasons, from the original Why Pamsika page. */
+const REASONS:{title:string;line:string;text:string;img:string;pos?:string}[]=[
+ {title:'Promoting local creators',line:'Talent deserves to be seen and valued.',text:'Malawi is home to gifted videographers, photographers, designers and storytellers. Pamsika gives qualified creators a route into business projects that need their skills. By selecting for craft, professionalism and work ethic, we aim to raise creative standards while recognising the people behind the work.',img:'creator-painter',pos:'50% 35%'},
+ {title:'Creating opportunities to earn',line:'Every project can open a door.',text:'Our model creates opportunities for independent creators to contribute to paid, project-based work. When a campaign needs local filming, photography or content capture, Pamsika brings suitable approved talent into the production. We want more creative ambition to become meaningful economic participation.',img:'production-crew'},
+ {title:'Sharing international work standards',line:'Better processes help talent grow.',text:'Clear briefs, structured production, creative feedback and quality reviews are part of how Pamsika works. Creators gain practical exposure to demanding professional workflows through collaboration. Our ambition is to help local talent refine its craft and build confidence for opportunities at home and beyond Malawi.',img:'strategy-session',pos:'50% 40%'},
+ {title:'Building a modern creative ecosystem',line:'Business growth and creative opportunity belong together.',text:'Pamsika connects strategic leadership, technology and local production talent in one coordinated model. AdLab develops the campaign; Creative Market supports its execution through a curated network. We want stronger businesses to create more demand for quality creative work, helping the wider industry grow.',img:'creative-team'},
+ {title:'Empowering collaboration',line:'Great work gives everyone a part to play.',text:'Pamsika brings the brief, guidance and creative direction. Independent creators contribute their specialist skills and local knowledge. Pamsika then handles post-production, quality control and final assembly. Shared standards and clearly defined roles help different talents build something stronger together.',img:'interview-shoot'},
+ {title:'Helping Malawian businesses grow',line:'Creative work should move a business forward.',text:'A strong campaign starts with a business challenge: being understood, reaching the right audience or giving people a reason to choose you. Pamsika brings strategy and creative execution together around that challenge, so the work has a clear purpose from the first idea to the final delivery.',img:'shopkeeper'},
+ {title:'Keeping local identity at the centre',line:'Our stories should sound and feel like us.',text:'World-class standards can coexist with a distinctly Malawian voice. Local creators bring understanding of the places, languages and everyday experiences that shape a story. We aim to build campaigns that respect this context and express Malawi’s culture, creativity and ambition without relying on stereotypes.',img:'portrait-blue',pos:'50% 30%'},
+ {title:'Using AI with human purpose',line:'Technology should expand what people can create.',text:'AI can help us explore ideas, develop creative directions and support production. Human judgement guides the strategy, cultural choices and final quality. Pamsika combines these tools with local talent so technology supports thoughtful creative work and the people who make it possible.',img:'animation'},
 ];
 
-const PROMISES:[string,string][]=[
- ['We start with the goal.','Bring the business problem, not a finished brief. The work is shaped around what you need to change.'],
- ['We call a concept a concept.','Illustrative work is labelled as illustrative. Nothing is passed off as client work or proof of results.'],
- ['We agree before we make.','Scope, cost, timing, usage and revisions are settled before work begins.'],
- ['We don’t sell guarantees.','We won’t promise views, leads or sales we can’t control. We will promise considered, purposeful work.'],
-];
-
-const words=MANIFESTO.split(' ');
+const words=BELIEF.split(' ');
 
 export default function WhyPamsika(){return <>
  <Breadcrumbs items={[['Why Pamsika','/why-pamsika']]}/>
  <Scrub/>
 
- {/* 1 · A bigger stage: the frame opens to full bleed as you scroll */}
+ {/* 1 · Local talent, greater possibility: the frame opens to full bleed as you scroll */}
  <section className="why-stage" data-scrub="pin" data-theme="dark" aria-labelledby="why-title">
   <div className="why-stage-pin">
    <div className="why-stage-frame" aria-hidden="true">
-    <StockImage name="lake-malawi" sizes="100vw" priority position="center 62%"/>
-    <span className="why-stage-caption">Lake Malawi at sunset</span>
+    <StockImage name="creative-team" sizes="100vw" priority position="center 40%"/>
    </div>
    <div className="why-stage-shade" aria-hidden="true"/>
    <div className="why-stage-copy container">
     <p className="why-kicker">Why Pamsika</p>
-    <h1 id="why-title"><span className="why-l1">African ambition</span> <span className="why-l2">deserves a</span> <span className="why-l3">bigger stage.</span></h1>
-    <p className="why-stage-lead">We believe great businesses should have access to the ideas, creative quality and technology that help them move forward.</p>
+    <h1 id="why-title"><span className="why-l1">Local talent.</span> <span className="why-l3">Greater possibility.</span></h1>
+    <p className="why-stage-lead">We exist to elevate Malawi’s creative economy by connecting local talent with world-class creative standards. Empowerment, collaboration and opportunity shape how we work.</p>
    </div>
    <span className="why-scrollcue" aria-hidden="true">Scroll</span>
   </div>
  </section>
 
- {/* 2 · The gap, read word by word */}
- <section className="why-manifesto" data-scrub="pin" data-theme="dark" aria-labelledby="why-gap">
+ {/* 2 · Our belief, read word by word */}
+ <section className="why-manifesto" data-scrub="pin" data-theme="dark" aria-labelledby="why-belief">
   <div className="why-manifesto-pin container">
-   <p className="why-kicker" id="why-gap">The gap we close</p>
+   <p className="why-kicker">Our belief</p>
+   <h2 className="why-belief-title" id="why-belief">Malawi’s ambition deserves exceptional creative work.</h2>
    <p className="why-manifesto-text" style={{'--n':words.length} as CSSProperties}>
-    {words.map((w,i)=><span key={i} className={HIGHLIGHT.has(w)&&i>words.length-4?'is-hot':undefined} style={{'--i':i} as CSSProperties}>{w} </span>)}
+    {words.map((w,i)=><span key={i} className={HOT.has(w)?'is-hot':undefined} style={{'--i':i} as CSSProperties}>{w} </span>)}
    </p>
   </div>
  </section>
 
- {/* 3 · Where three things meet */}
- <section className="section why-meet container" data-scrub="enter" aria-labelledby="why-meet">
+ {/* 3 · Built around that connection */}
+ <section className="section why-meet container" data-scrub="enter" aria-labelledby="why-connection">
   <div className="why-meet-copy">
-   <p className="why-kicker">Where it comes together</p>
-   <h2 id="why-meet">Three strengths. One move forward.</h2>
-   <p className="lead">Pamsika is an AI-powered African business growth platform working at the intersection of business, creativity, technology, media and culture.</p>
-   <p>We bring modern creative tools together with human understanding to help businesses communicate clearly, market effectively and compete at a higher standard.</p>
+   <p className="why-kicker">Built around that connection</p>
+   <h2 id="why-connection">One platform. Two ambitions.</h2>
+   <p className="lead">Pamsika is a premium creative intelligence platform built around that connection.</p>
+   <p>We lead the strategy and creative vision, work with vetted independent creators, and take responsibility for the finished campaign.</p>
+   <TextLink href="/about">See how Pamsika works</TextLink>
   </div>
   <div className="why-venn" aria-hidden="true">
-   <span className="why-ring" data-ring="a"><b>Creativity</b></span>
-   <span className="why-ring" data-ring="b"><b>Technology</b></span>
-   <span className="why-ring" data-ring="c"><b>Local<br/>intelligence</b></span>
-   <span className="why-core">Ideas that<br/>move business.</span>
+   <span className="why-ring" data-ring="a"><b>Businesses<small>Stronger stories</small></b></span>
+   <span className="why-ring" data-ring="b"><b>Creators<small>Room to contribute</small></b></span>
+   <span className="why-core">Pamsika</span>
   </div>
  </section>
 
- {/* 4 · What guides us */}
- <section className="section why-principles" data-theme="dark" aria-labelledby="why-guides">
-  <div className="container">
-   <div className="why-head"><p className="why-kicker">What guides us</p><h2 id="why-guides">Ambitious work.<br/>Grounded thinking.</h2></div>
-   <ol className="why-panels">
-    {PRINCIPLES.map(([n,title,text,img])=><li key={n} className="why-panel" tabIndex={0}>
-     <StockImage name={img} sizes="(max-width:900px) 92vw, 46vw" className="why-panel-img"/>
-     <span className="why-panel-n" aria-hidden="true">{n}</span>
-     <div className="why-panel-body"><h3>{title}</h3><p>{text}</p></div>
-    </li>)}
-   </ol>
+ {/* 4 · What drives us: eight reasons, a horizontal reel on wide screens */}
+ <section className="why-drive" data-scrub="pin" data-theme="dark" aria-labelledby="why-drives">
+  <div className="why-drive-pin">
+   <div className="why-drive-track">
+    <header className="why-drive-intro">
+     <p className="why-kicker">What drives us</p>
+     <h2 id="why-drives">Eight reasons to build differently.</h2>
+     <span className="why-drive-hint" aria-hidden="true">Keep scrolling</span>
+    </header>
+    <ol className="why-reasons">
+     {REASONS.map((r,i)=><li className="why-reason" key={r.title}>
+      <div className="why-reason-media"><StockImage name={r.img} sizes="(max-width:899px) 92vw, 34vw" position={r.pos}/></div>
+      <div className="why-reason-body">
+       <span className="why-reason-n" aria-hidden="true">{String(i+1).padStart(2,'0')}</span>
+       <h3><span>{r.title}</span>{r.line}</h3>
+       <p>{r.text}</p>
+      </div>
+     </li>)}
+    </ol>
+   </div>
+   <div className="why-drive-progress" aria-hidden="true"><i/></div>
   </div>
  </section>
 
- {/* 5 · Promises */}
- <section className="section why-promises container" aria-labelledby="why-promise">
-  <div className="why-head"><p className="why-kicker">How we work with you</p><h2 id="why-promise">Clear terms.<br/>Honest work.</h2></div>
-  <ul>
-   {PROMISES.map(([title,text],i)=><li key={title} data-reveal style={{'--d':i} as CSSProperties}><span className="why-promise-n">0{i+1}</span><h3>{title}</h3><p>{text}</p></li>)}
-  </ul>
+ {/* 5 · Opportunity with clarity */}
+ <section className="section why-clarity container" aria-labelledby="why-clarity">
+  <div>
+   <p className="why-kicker">Opportunity with clarity</p>
+   <h2 id="why-clarity">A shared ambition. A clear commitment.</h2>
+  </div>
+  <div className="why-clarity-body">
+   <p className="lead">We aim to create lasting value through the quality of the work and the way people collaborate.</p>
+   <p>These are the principles we are building towards. Creator approval is selective, and assignments depend on the needs of each project. A listing does not guarantee work. Scope, compensation and expectations are agreed before an assignment begins.</p>
+   <TextLink href="/faq#creator-approval">Understand creator opportunities</TextLink>
+  </div>
  </section>
 
- {/* 6 · Two ways in */}
- <section className="section why-routes" data-theme="dark" aria-labelledby="why-routes">
+ {/* 6 · Be part of what comes next */}
+ <section className="section why-routes" data-theme="dark" aria-labelledby="why-next">
   <div className="container">
-   <div className="why-head"><p className="why-kicker">Two ways in</p><h2 id="why-routes">Start where your business is.</h2></div>
+   <div className="why-head"><p className="why-kicker">Be part of what comes next</p><h2 id="why-next">Bring your ambition. Bring your craft.</h2><p className="why-head-sub">Build a campaign with Pamsika, or apply to contribute your skills to our creator network.</p></div>
    <div className="why-route-grid">
     <article className="why-route">
-     <StockImage name="production-crew" sizes="(max-width:900px) 92vw, 46vw" className="why-route-img"/>
+     <StockImage name="vendor-phone" sizes="(max-width:900px) 92vw, 46vw" className="why-route-img"/>
      <div className="why-route-body">
-      <p className="why-route-label">Pamsika AdLab</p>
-      <h3>A campaign, from idea to production.</h3>
-      <p>Creative strategy, commercial production, social campaigns and brand design, shaped around a business goal.</p>
-      <div className="actions"><ButtonLink href="/adlab" variant="accent">Explore AdLab</ButtonLink></div>
+      <p className="why-route-label">For businesses</p>
+      <h3>Build a campaign with Pamsika.</h3>
+      <div className="actions"><ButtonLink href="/start-a-campaign" variant="accent" track="Start a campaign (Why Pamsika)">Start a campaign</ButtonLink></div>
      </div>
     </article>
     <article className="why-route">
-     <StockImage name="creator-painter" sizes="(max-width:900px) 92vw, 46vw" className="why-route-img"/>
+     <StockImage name="photography" sizes="(max-width:900px) 92vw, 46vw" className="why-route-img"/>
      <div className="why-route-body">
-      <p className="why-route-label">Creative Market</p>
-      <h3>The right craft for your project.</h3>
-      <p>Film, design, photography, writing, sound and motion. Describe the need and we explore the right creative support.</p>
-      <div className="actions"><ButtonLink href="/creative-market" variant="glass">Explore Creative Market</ButtonLink></div>
+      <p className="why-route-label">For creators</p>
+      <h3>Contribute your craft to our creator network.</h3>
+      <div className="actions"><ButtonLink href="/creative-market/join" variant="glass" track="Apply as a creator (Why Pamsika)">Apply as a creator</ButtonLink></div>
      </div>
     </article>
    </div>
-   <p className="why-routes-note">Not sure which fits? <TextLink href="/faq?view=guide">Let the guide help you choose</TextLink></p>
   </div>
  </section>
-
- <CTA title="Your ambition deserves a bigger stage. Let’s build it."/>
 </>;}
