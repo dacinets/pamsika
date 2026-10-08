@@ -1,0 +1,21 @@
+name: Fetch stock candidates
+on:
+  push:
+    branches: [stock-candidates]
+    paths: [list.txt]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p img
+          while read -r name id who; do
+            [ -z "$name" ] && continue
+            curl -fsSL "https://images.unsplash.com/photo-$id?w=1800&q=82&fm=jpg&auto=format" -o "img/$name.jpg" || echo "FAILED $name"
+          done < list.txt
+          ls -la img
+          git config user.name github-actions && git config user.email github-actions@users.noreply.github.com
+          git add img && git commit -m "Stock candidates" && git push
