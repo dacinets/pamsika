@@ -33,3 +33,16 @@ Stock photography on the site comes from [Unsplash](https://unsplash.com) under 
 | creator-phone | Valdhy Mbemba | https://images.unsplash.com/photo-1666041758640-a91570754260 |
 
 The campaign concept images in `public/media/` (founder, citrus) are AdLab illustrative concepts, not stock.
+
+## Creative Market hero (`public/media/market/`)
+
+Cropped to 4:5 portraits at 640, 1280 and 1672 widths for `components/market/MarketHero.tsx`. All Unsplash License.
+
+| File | Photographer | Source |
+|---|---|---|
+| cm-film | CineDirektor FILMS | https://images.unsplash.com/photo-1597511821783-df92a3ccea36 |
+| cm-shoot | Andrew Itaga | https://images.unsplash.com/photo-1754233597288-4fb399b854fb |
+| cm-design | Dwayne Joe | https://images.unsplash.com/photo-1785829413475-3e6fb2c67210 |
+| cm-write | Fotografia Editorial | https://images.unsplash.com/photo-1765648496267-a0b528fb97fb |
+| cm-record | Jonathan Velasquez | https://images.unsplash.com/photo-1478737270239-2f02b77fc618 |
+| cm-animate | Ion Sipilov | https://images.unsplash.com/photo-1547194936-28214bd75193 |
