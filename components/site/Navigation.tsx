@@ -4,7 +4,7 @@ import {usePathname} from 'next/navigation';
 import {useEffect,useRef,useState} from 'react';
 import {ArrowUpRight, Menu, X} from 'lucide-react';
 import {Logo} from '../brand/Logo';
-const links=[['/adlab','AdLab'],['/creative-market','Creative Market'],['/work','Work'],['/services','Services'],['/faq','FAQ']];
+const links=[['/why-pamsika','Why Pamsika'],['/adlab','AdLab'],['/creative-market','Creative Market'],['/work','Work'],['/services','Services'],['/faq','FAQ']];
 export function Navigation(){
  const path=usePathname(),[open,setOpen]=useState(false),toggle=useRef<HTMLButtonElement>(null);
  useEffect(()=>{setOpen(false)},[path]);

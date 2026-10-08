@@ -84,7 +84,7 @@
 /* ---- Copy ---- */
 .al-body{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(24px,3.4vw,44px);pointer-events:none}
 .al-body a,.al-body button{pointer-events:auto}
-.al-copy{max-width:min(900px,62vw)}
+.al-copy{max-width:62vw}
 .al-window{display:none}
 .al-copy .logo-frame{margin-bottom:clamp(18px,2vw,28px)}
 .al-copy .logo-frame img{width:clamp(150px,13vw,208px);height:auto}
@@ -92,7 +92,7 @@
 .al-kicker::before{content:'';display:inline-block;width:28px;height:2px;margin:0 12px .25em 0;background:var(--color-brand-accent);vertical-align:middle}
 .adlab-lens h1{margin:0;font:800 clamp(2.6rem,min(5.5vw,9.4svh),7.4rem)/.86 var(--font-display);letter-spacing:-.05em;text-transform:uppercase;color:#fff;text-wrap:balance}
 .adlab-lens h1 .accent-text{color:var(--color-brand-accent)}
-.al-line{display:block;overflow:hidden;white-space:nowrap;padding:.04em 0 .06em;margin-bottom:-.06em}
+.al-line{display:block;overflow:hidden;padding:.04em 0 .06em;margin-bottom:-.06em}
 .al-line>span{display:block;animation:al-rise 1.2s var(--al-ease) calc(.2s + var(--l) * .1s) both}
 @keyframes al-rise{from{transform:translateY(112%)}to{transform:none}}
 .al-lead{max-width:48ch;margin-top:clamp(20px,2.2vw,30px);font-size:clamp(1rem,1.1vw,1.125rem);line-height:1.55;color:rgba(255,255,255,.84);animation:al-fade 1s ease .55s both}
@@ -138,7 +138,6 @@
   .al-body{justify-content:flex-start}
   .al-copy .logo-frame{margin-bottom:14px}
   .al-copy .logo-frame img{width:132px}
-  .al-line{white-space:normal}
   .al-lens-tag{display:none}
   .al-kicker{font-size:.66rem;letter-spacing:.16em}
   .al-kicker::before{width:18px;margin-right:8px}

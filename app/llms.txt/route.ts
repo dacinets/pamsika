@@ -13,6 +13,7 @@ Pricing is quoted per project after a brief; there is no public price list, onli
 
 ## Key pages
 - [Home](${u('/')}): overview of AdLab and Creative Market
+- [Why Pamsika](${u('/why-pamsika/')}): why Pamsika exists, what guides the work and how we work with clients
 - [AdLab](${u('/adlab/')}): campaigns and commercial production
 - [Creative Market](${u('/creative-market/')}): creative disciplines and matching
 - [Services](${u('/services/')}): campaign services in detail
