@@ -138,6 +138,7 @@ export function HeroFilm(){
     </div>
    </div>
   </div>
+  <noscript><style>{'.hf-beat:not(h1){display:none}h1.hf-beat .hf-line>span{transform:none}'}</style></noscript>
   <a className="hf-scroll" href="#our-offerings" aria-label="Scroll to our offerings"><span/></a>
  </section>;
 }
