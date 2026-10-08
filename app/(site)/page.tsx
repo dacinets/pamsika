@@ -1,6 +1,7 @@
 import {ButtonLink,CTA,Eyebrow,SectionHeading,TextLink} from '@/components/site/UI';
 import {Logo} from '@/components/brand/Logo';
 import {StockImage} from '@/components/site/StockImage';
+import {HeroShowcase} from '@/components/home/HeroShowcase';
 import {JsonLd} from '@/components/site/StructuredData';
 import {ArrowUpRight,AudioLines,Camera,Clapperboard,Lightbulb,MessageCircleQuestion,MoveUpRight,PenTool,Plus,Sparkles,TrendingUp,Type,Users,MapPin,ShieldCheck} from 'lucide-react';
 import {marketServices} from '@/lib/market-services.mjs';
@@ -24,11 +25,7 @@ export default function Home(){return <>
    <div className="actions" data-rise="4"><ButtonLink href="/start-a-campaign" track="Start a campaign (hero)">Start a campaign</ButtonLink><ButtonLink href="/faq?view=guide" variant="glass" arrow={false} track="Help me choose (hero)"><Sparkles size={16} aria-hidden/>Help me choose</ButtonLink></div>
    <div className="hero-proof" data-rise="5"><span><MapPin size={15} aria-hidden/>Malawian creative focus</span><span><Sparkles size={15} aria-hidden/>AI-assisted production</span><span><Users size={15} aria-hidden/>Human creative direction</span><span><ShieldCheck size={15} aria-hidden/>Scope agreed first</span></div>
   </div>
-  <div className="hero-stage" data-rise="3">
-   <figure className="hero-photo"><img src="/media/founder-1280.webp" srcSet="/media/founder-640.webp 640w, /media/founder-1280.webp 1280w, /media/founder-1672.webp 1672w" sizes="(max-width:1023px) 92vw, 44vw" width="1672" height="941" alt="Illustrative campaign portrait of a fashion entrepreneur in her studio" fetchPriority="high"/><figcaption>AdLab creative direction · Illustrative concept</figcaption></figure>
-   <div className="hero-float hero-float-a glass"><p className="eyebrow">The ambition behind the business</p><strong>Built here.<br/>Ready for more.</strong><p>Brand stories that put the founder at the centre.</p></div>
-   <div className="hero-float hero-float-b glass" aria-hidden="true"><span><i/>Strategy</span><span><i/>Creativity</span><span><i/>Technology</span><span><i/>Culture</span></div>
-  </div>
+  <div className="hero-stage" data-rise="3"><HeroShowcase/></div>
  </div>
 </section>
 
