@@ -1,6 +1,6 @@
 import {ButtonLink,CTA,Eyebrow,SectionHeading,TextLink} from '@/components/site/UI';
 import {Logo} from '@/components/brand/Logo';
-import {PatternArt} from '@/components/art/PatternArt';
+import {StockImage} from '@/components/site/StockImage';
 import {JsonLd} from '@/components/site/StructuredData';
 import {ArrowUpRight,AudioLines,Camera,Clapperboard,Lightbulb,MessageCircleQuestion,MoveUpRight,PenTool,Plus,Sparkles,TrendingUp,Type,Users,MapPin,ShieldCheck} from 'lucide-react';
 import {marketServices} from '@/lib/market-services.mjs';
@@ -48,7 +48,7 @@ export default function Home(){return <>
    </div>
   </article>
   <article className="offer-card" data-reveal>
-   <PatternArt id="market"/>
+   <StockImage name="creator-painter" sizes="(max-width:1023px) 100vw, 44vw" position="40% center"/>
    <div className="offer-panel glass">
     <p className="eyebrow">Creative Market</p>
     <h3>The craft behind your next move.</h3>
@@ -62,7 +62,7 @@ export default function Home(){return <>
 
 <section className="section container">
  <div className="feature-v2">
-  <figure className="feature-media" data-reveal><img src="/media/founder-1672.webp" width="1672" height="941" alt="Illustrative portrait of an entrepreneur, lit in Pamsika blue" loading="lazy" style={{objectPosition:'70% center'}}/><figcaption className="glass">Brand story · Illustrative concept</figcaption></figure>
+  <figure className="feature-media" data-reveal><StockImage name="tailor" sizes="(max-width:1023px) 92vw, 52vw" position="60% center"/><figcaption className="glass">Made for the people behind the business</figcaption></figure>
   <div className="feature-copy-v2" data-reveal>
    <Eyebrow>More than a good-looking ad</Eyebrow>
    <h2>Built around <span className="accent-text">your</span> business.</h2>
@@ -79,7 +79,7 @@ export default function Home(){return <>
  <div className="container">
   <SectionHeading eyebrow="Creative Market" title="What does your idea need?" description="Start with a specific discipline, or combine several around your project." action={<TextLink href="/creative-market">All disciplines</TextLink>}/>
   <div className="discipline-grid">
-   {marketServices.map(service=>{const Icon=disciplineIcons[service.slug]??Camera;return <a className="discipline-tile glass lift" href={`/creative-market/${service.slug}/`} key={service.slug} data-reveal data-track={`Discipline: ${service.title}`}><span className="tile-top"><Icon size={26} strokeWidth={1.5} aria-hidden/><ArrowUpRight size={20} aria-hidden/></span><span><strong>{service.title}</strong><small>{service.summary}</small></span></a>})}
+   {marketServices.map(service=>{const Icon=disciplineIcons[service.slug]??Camera;return <a className="discipline-tile glass lift" href={`/creative-market/${service.slug}/`} key={service.slug} data-reveal data-track={`Discipline: ${service.title}`}><StockImage name={service.image} className="tile-photo" sizes="(max-width:767px) 92vw, (max-width:1023px) 46vw, 30vw"/><span className="tile-top"><Icon size={26} strokeWidth={1.5} aria-hidden/><ArrowUpRight size={20} aria-hidden/></span><span><strong>{service.title}</strong><small>{service.summary}</small></span></a>})}
   </div>
  </div>
 </section>
