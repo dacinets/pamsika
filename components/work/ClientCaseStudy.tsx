@@ -4,7 +4,7 @@ import {Breadcrumbs,JsonLd} from '@/components/site/StructuredData';
 import {ButtonLink,CTA,Eyebrow,TextLink} from '@/components/site/UI';
 import {CaseFilm} from './CaseFilm';
 export const caseMetadata=(w:ClientWork)=>pageMetadata(`${w.client}: ${w.title}`,w.description,`/work/${w.slug}`);
-export function ClientCaseStudy({work:w}:{work:ClientWork}){return <><div className="dark-section" data-theme="dark">
+export function ClientCaseStudy({work:w}:{work:ClientWork}){return <><div>
  <JsonLd data={{'@context':'https://schema.org','@type':'VideoObject',name:`${w.client}: ${w.title}`,description:w.description,thumbnailUrl:`${SITE_URL}${w.film.poster}`,contentUrl:`${SITE_URL}${w.film.src}`,uploadDate:`${w.year}-10-09`,creator:{'@id':`${SITE_URL}/#organization`}}}/>
  <Breadcrumbs items={[['Work','/work'],[w.client,`/work/${w.slug}`]]}/>
  <div className="container campaign-detail-head"><TextLink href="/work">All work</TextLink><Eyebrow>Client work · {w.category} · {w.location}</Eyebrow><h1>{w.client}. <span className="accent-text">{w.title}</span></h1><p className="lead">{w.description}</p></div>

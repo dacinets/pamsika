@@ -58,7 +58,7 @@ export function HeroShowcase(){
  const next=()=>setAct(a=>(a+1)%ACTS.length);
 
  return <div className={`showcase${running?' is-running':''}`} ref={root}>
-  <div className="sc-stage" data-act={act} ref={stage} aria-hidden="true">
+  <div className="sc-stage" data-theme="dark" data-act={act} ref={stage} aria-hidden="true">
    <div className="sc-aura"><i/><i/><i/></div>
    <div className="sc-floor"/>
 

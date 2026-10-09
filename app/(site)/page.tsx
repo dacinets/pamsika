@@ -36,7 +36,7 @@ export default function Home(){return <>
 <section className="section container" id="our-offerings">
  <SectionHeading eyebrow="One platform. Growing possibilities." title="Start with the idea. Grow from there." description="Two ways to move your business forward: AdLab for a campaign from idea to execution, and Creative Market for the creative skills your project needs."/>
  <div className="offer-grid">
-  <article className="offer-card" data-reveal>
+  <article className="offer-card" data-theme="dark" data-reveal>
    <img src="/media/citrus-1280.webp" srcSet="/media/citrus-640.webp 640w, /media/citrus-1280.webp 1280w, /media/citrus-1672.webp 1672w" sizes="(max-width:1023px) 100vw, 56vw" width="1672" height="941" alt="Illustrative product campaign: a chilled citrus drink in dramatic studio light" loading="lazy"/>
    <div className="offer-panel glass">
     <Logo kind="adlab" dark width={190}/>
@@ -46,7 +46,7 @@ export default function Home(){return <>
     <div className="actions"><ButtonLink href="/adlab" variant="accent" track="Explore AdLab (home)">Explore AdLab</ButtonLink><TextLink href="/work">See the ideas</TextLink></div>
    </div>
   </article>
-  <article className="offer-card" data-reveal>
+  <article className="offer-card" data-theme="dark" data-reveal>
    <StockImage name="creator-painter" sizes="(max-width:1023px) 100vw, 44vw" position="40% center"/>
    <div className="offer-panel glass">
     <p className="eyebrow">Creative Market</p>
@@ -61,7 +61,7 @@ export default function Home(){return <>
 
 <section className="section container">
  <div className="feature-v2">
-  <figure className="feature-media" data-reveal><StockImage name="tailor" sizes="(max-width:1023px) 92vw, 52vw" position="60% center"/><figcaption className="glass">Made for the people behind the business</figcaption></figure>
+  <figure className="feature-media" data-theme="dark" data-reveal><StockImage name="tailor" sizes="(max-width:1023px) 92vw, 52vw" position="60% center"/><figcaption className="glass">Made for the people behind the business</figcaption></figure>
   <div className="feature-copy-v2" data-reveal>
    <Eyebrow>More than a good-looking ad</Eyebrow>
    <h2>Built around <span className="accent-text">your</span> business.</h2>
@@ -78,7 +78,7 @@ export default function Home(){return <>
  <div className="container">
   <SectionHeading eyebrow="Creative Market" title="What does your idea need?" description="Start with a specific discipline, or combine several around your project." action={<TextLink href="/creative-market">All disciplines</TextLink>}/>
   <div className="discipline-grid">
-   {marketServices.map(service=>{const Icon=disciplineIcons[service.slug]??Camera;return <a className="discipline-tile glass lift" href={`/creative-market/${service.slug}/`} key={service.slug} data-reveal data-track={`Discipline: ${service.title}`}><StockImage name={service.image} className="tile-photo" sizes="(max-width:767px) 92vw, (max-width:1023px) 46vw, 30vw"/><span className="tile-top"><Icon size={26} strokeWidth={1.5} aria-hidden/><ArrowUpRight size={20} aria-hidden/></span><span><strong>{service.title}</strong><small>{service.summary}</small></span></a>})}
+   {marketServices.map(service=>{const Icon=disciplineIcons[service.slug]??Camera;return <a className="discipline-tile glass lift" data-theme="dark" href={`/creative-market/${service.slug}/`} key={service.slug} data-reveal data-track={`Discipline: ${service.title}`}><StockImage name={service.image} className="tile-photo" sizes="(max-width:767px) 92vw, (max-width:1023px) 46vw, 30vw"/><span className="tile-top"><Icon size={26} strokeWidth={1.5} aria-hidden/><ArrowUpRight size={20} aria-hidden/></span><span><strong>{service.title}</strong><small>{service.summary}</small></span></a>})}
   </div>
  </div>
 </section>

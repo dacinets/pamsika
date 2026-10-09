@@ -45,7 +45,7 @@ export default function WhyPamsika(){return <>
  </section>
 
  {/* 2 · Our belief, read word by word */}
- <section className="why-manifesto" data-scrub="pin" data-theme="dark" aria-labelledby="why-belief">
+ <section className="why-manifesto" data-scrub="pin" aria-labelledby="why-belief">
   <div className="why-manifesto-pin container">
    <p className="why-kicker">Our belief</p>
    <h2 className="why-belief-title" id="why-belief">Malawi’s ambition deserves exceptional creative work.</h2>
@@ -72,7 +72,7 @@ export default function WhyPamsika(){return <>
  </section>
 
  {/* 4 · What drives us: eight reasons, a horizontal reel on wide screens */}
- <section className="why-drive" data-scrub="pin" data-theme="dark" aria-labelledby="why-drives">
+ <section className="why-drive" data-scrub="pin" aria-labelledby="why-drives">
   <div className="why-drive-pin">
    <div className="why-drive-track">
     <header className="why-drive-intro">
@@ -109,11 +109,11 @@ export default function WhyPamsika(){return <>
  </section>
 
  {/* 6 · Be part of what comes next */}
- <section className="section why-routes" data-theme="dark" aria-labelledby="why-next">
+ <section className="section why-routes" aria-labelledby="why-next">
   <div className="container">
    <div className="why-head"><p className="why-kicker">Be part of what comes next</p><h2 id="why-next">Bring your ambition. Bring your craft.</h2><p className="why-head-sub">Build a campaign with Pamsika, or apply to contribute your skills to our creator network.</p></div>
    <div className="why-route-grid">
-    <article className="why-route">
+    <article className="why-route" data-theme="dark">
      <StockImage name="vendor-phone" sizes="(max-width:900px) 92vw, 46vw" className="why-route-img"/>
      <div className="why-route-body">
       <p className="why-route-label">For businesses</p>
@@ -121,7 +121,7 @@ export default function WhyPamsika(){return <>
       <div className="actions"><ButtonLink href="/start-a-campaign" variant="accent" track="Start a campaign (Why Pamsika)">Start a campaign</ButtonLink></div>
      </div>
     </article>
-    <article className="why-route">
+    <article className="why-route" data-theme="dark">
      <StockImage name="photography" sizes="(max-width:900px) 92vw, 46vw" className="why-route-img"/>
      <div className="why-route-body">
       <p className="why-route-label">For creators</p>
