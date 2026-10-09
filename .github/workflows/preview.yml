@@ -1,0 +1,39 @@
+name: Preview
+# Publishes a look-and-feel preview to GitHub Pages (https://dacinets.github.io/pamsika/).
+# Pages has no PHP, so forms and the /admin dashboard only work on Bluehost.
+# One-time setup: Settings → Pages → Source: GitHub Actions.
+on:
+  push:
+    branches: [main, redesign]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build under /pamsika, not indexable
+        run: npm run build && node tools/prefix-base-path.mjs out /pamsika
+        env:
+          NEXT_BASE_PATH: /pamsika
+          NEXT_PUBLIC_SITE_URL: https://dacinets.github.io/pamsika
+          NEXT_PUBLIC_ALLOW_INDEXING: 'false'
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out/
+      - id: deployment
+        uses: actions/deploy-pages@v4

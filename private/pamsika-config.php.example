@@ -1,0 +1,43 @@
+<?php
+/**
+ * Pamsika private configuration.
+ *
+ * Copy to /home/<cpanel-user>/private/pamsika-config.php on Bluehost — one level
+ * ABOVE public_html so it can never be downloaded — then `chmod 600` it.
+ * Never commit the real file.
+ */
+
+return [
+    'db' => [
+        'driver' => 'mysql',
+        'host' => 'localhost',
+        'port' => 3306,
+        'database' => 'cpaneluser_pamsika',   // cPanel > MySQL Databases
+        'username' => 'cpaneluser_pamsika',
+        'password' => 'CHANGE-ME',
+    ],
+
+    'app' => [
+        'url' => 'https://pamsika.com',
+        // Long random string. Generate with: php -r "echo bin2hex(random_bytes(32));"
+        'hash_salt' => 'CHANGE-ME-64-HEX-CHARACTERS',
+        // Extra origins allowed to post forms (the site's own origin is always allowed).
+        'allowed_origins' => ['https://pamsika.com', 'https://www.pamsika.com'],
+    ],
+
+    // Dashboard sign-in at /admin/. Generate a hash with:
+    //   php tools/hash-password.php 'your-long-password'
+    'admins' => [
+        ['email' => 'you@pamsika.com', 'password_hash' => '$2y$10$REPLACE-WITH-GENERATED-HASH'],
+    ],
+
+    // New-enquiry emails. "from" must be a mailbox on your Bluehost domain.
+    'notify' => [
+        'to' => 'hello@pamsika.com',
+        'from' => 'website@pamsika.com',
+    ],
+
+    'security' => [
+        'enquiries_per_hour' => 6,
+    ],
+];
