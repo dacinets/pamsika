@@ -1,0 +1,17 @@
+import type {ClientWork} from '@/lib/work';
+import {pageMetadata,SITE_URL} from '@/lib/site';
+import {Breadcrumbs,JsonLd} from '@/components/site/StructuredData';
+import {ButtonLink,CTA,Eyebrow,TextLink} from '@/components/site/UI';
+import {CaseFilm} from './CaseFilm';
+export const caseMetadata=(w:ClientWork)=>pageMetadata(`${w.client}: ${w.title}`,w.description,`/work/${w.slug}`);
+export function ClientCaseStudy({work:w}:{work:ClientWork}){return <><div className="dark-section" data-theme="dark">
+ <JsonLd data={{'@context':'https://schema.org','@type':'VideoObject',name:`${w.client}: ${w.title}`,description:w.description,thumbnailUrl:`${SITE_URL}${w.film.poster}`,contentUrl:`${SITE_URL}${w.film.src}`,uploadDate:`${w.year}-10-09`,creator:{'@id':`${SITE_URL}/#organization`}}}/>
+ <Breadcrumbs items={[['Work','/work'],[w.client,`/work/${w.slug}`]]}/>
+ <div className="container campaign-detail-head"><TextLink href="/work">All work</TextLink><Eyebrow>Client work · {w.category} · {w.location}</Eyebrow><h1>{w.client}. <span className="accent-text">{w.title}</span></h1><p className="lead">{w.description}</p></div>
+ <div className="container"><CaseFilm work={w}/></div>
+ <section className="section container editorial-split"><div><Eyebrow>The brief</Eyebrow><h2>Introduce an advanced treatment to people who expect the best.</h2></div><div><p className="lead">{w.brief}</p><dl className="case-facts"><div><dt>Client</dt><dd>{w.client}</dd></div><div><dt>Services</dt><dd>{w.services.join(', ')}</dd></div><div><dt>Delivered</dt><dd>{w.deliverables.join(' · ')}</dd></div></dl></div></section>
+ <section className="section container"><div className="case-heading"><Eyebrow>The challenge</Eyebrow><h2>What stood in the way.</h2></div><div className="case-grid case-grid-4">{w.challenges.map((c,i)=><article className="case-card" key={c.title}><span className="process-number">0{i+1}</span><h3>{c.title}</h3><p>{c.text}</p></article>)}</div></section>
+ <section className="section container"><div className="case-heading"><Eyebrow>How we met the goals</Eyebrow><h2>One idea, made clear, honest and alive.</h2></div><div className="case-grid">{w.approach.map((a,i)=><article className="case-card" key={a.title}><span className="process-number">0{i+1}</span><h3>{a.title}</h3><p>{a.text}</p></article>)}</div></section>
+ <section className="section container"><div className="case-heading"><Eyebrow>Inside the film</Eyebrow><h2>Frames from the cut.</h2></div><div className="case-stills">{w.stills.map(s=><figure key={s.image}><img src={`${s.image}-1280.webp`} srcSet={`${s.image}-640.webp 640w, ${s.image}-1280.webp 1280w`} sizes="(max-width:767px) 100vw, 50vw" width="1280" height="720" loading="lazy" alt={s.alt}/><figcaption>{s.caption}</figcaption></figure>)}</div></section>
+ <section className="section container editorial-split"><div><Eyebrow>Our values, in practice</Eyebrow><h2>Why it’s a Pamsika film.</h2><TextLink href="/why-pamsika">Why Pamsika</TextLink></div><div><ul className="case-values">{w.values.map(v=><li key={v.value}><strong>{v.value}</strong><span>{v.how}</span></li>)}</ul><p className="case-note">{w.note}</p><div className="actions"><ButtonLink href="/start-a-campaign" variant="accent">Start a campaign</ButtonLink></div></div></section>
+</div><CTA title="Have something people need to understand?" description="Tell us what makes your business different. We’ll help you say it clearly, beautifully and honestly."/></>}

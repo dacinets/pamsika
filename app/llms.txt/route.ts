@@ -17,7 +17,7 @@ Pricing is quoted per project after a brief; there is no public price list, onli
 - [AdLab](${u('/adlab/')}): campaigns and commercial production
 - [Creative Market](${u('/creative-market/')}): creative disciplines and matching
 - [Services](${u('/services/')}): campaign services in detail
-- [Work](${u('/work/')}): illustrative creative directions
+- [Work](${u('/work/')}): client work, including a launch film for Belle Afrique Private Wellness (${u('/work/belle-afrique-laser/')}), and illustrative creative directions
 - [FAQ](${u('/faq/')}): ${faqs.length} plain-language answers
 - [Start a campaign](${u('/start-a-campaign/')}): campaign brief form
 - [Request a creative match](${u('/creative-market/request/')}): Creative Market brief form
