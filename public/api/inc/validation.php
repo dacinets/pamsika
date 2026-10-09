@@ -8,7 +8,7 @@
 declare(strict_types=1);
 
 const CAMPAIGN_SERVICES = ['Creative strategy', 'Commercial production', 'Social campaigns', 'Brand and design'];
-const MARKET_SERVICES = ['Film and video', 'Design and branding', 'Photography', 'Writing and content', 'Sound and voice', 'Animation and motion'];
+const MARKET_SERVICES = ['Film and video', 'Design and branding', 'Photography', 'Writing and content', 'Sound and voice', 'Animation and motion', 'Illustration and 3D design', 'Translation and localisation', 'Web design and development', 'User experience and interface design', 'E-commerce', 'AI and business automation', 'Software and app development', 'Search and campaign analytics'];
 const ENQUIRY_KINDS = ['campaign', 'adapt', 'contact', 'market', 'creator'];
 
 /** @return array{success:bool, errors?:array<string,string>, data?:array<string,mixed>} */

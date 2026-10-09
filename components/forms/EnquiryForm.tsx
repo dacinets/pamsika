@@ -13,7 +13,7 @@ export function EnquiryForm({kind}:{kind:'campaign'|'adapt'|'contact'|'market'|'
  const[errors,setErrors]=useState<Record<string,string>>({}),[validationAttempt,setValidationAttempt]=useState(0),[review,setReview]=useState(false),[busy,setBusy]=useState(false),[failure,setFailure]=useState(''),[reference,setReference]=useState('');
  const requestId=useRef(''),summary=useRef<HTMLDivElement>(null),reviewHeading=useRef<HTMLHeadingElement>(null),successHeading=useRef<HTMLHeadingElement>(null);
  const started=useRef(false);
- useEffect(()=>{track('form_view',kind);requestId.current=crypto.randomUUID();const params=new URLSearchParams(location.search);setFields(v=>({...v,idea:params.get('idea')||'',services:serviceOptions.includes(params.get('service')||'')?[params.get('service')!]:[]}));},[]);
+ useEffect(()=>{track('form_view',kind);requestId.current=crypto.randomUUID();const params=new URLSearchParams(location.search);setFields(v=>({...v,idea:params.get('idea')||'',services:[...new Set(params.getAll('service'))].filter(service=>serviceOptions.includes(service))}));},[]);
  useEffect(()=>{if(validationAttempt>0)summary.current?.focus()},[validationAttempt]);
  useEffect(()=>{if(review){reviewHeading.current?.focus();track('form_review',kind);}},[review]);
  useEffect(()=>{if(reference)successHeading.current?.focus()},[reference]);

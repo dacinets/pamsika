@@ -31,6 +31,14 @@ Stock photography on the site comes from [Unsplash](https://unsplash.com) under 
 | market-aerial | Ingeborg Korme | https://images.unsplash.com/photo-1734866660928-f7cd6e1b90f9 |
 | studio-mic | Will Francis | https://images.unsplash.com/photo-1589903308904-1010c2294adc |
 | creator-phone | Valdhy Mbemba | https://images.unsplash.com/photo-1666041758640-a91570754260 |
+| illustration-3d | Pawel Czerwinski | https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe |
+| translation | Fotografia Editorial | https://images.unsplash.com/photo-1765650114546-83a73ec9d461 |
+| web-development | Christopher Gower | https://images.unsplash.com/photo-1498050108023-c5249f4df085 |
+| ux-design | Unsplash contributor | https://images.unsplash.com/photo-1581291518857-4e27b48ff24e |
+| e-commerce | Unsplash contributor | https://images.unsplash.com/photo-1563013544-824ae1b704d3 |
+| ai-automation | Unsplash contributor | https://images.unsplash.com/photo-1677442136019-21780ecad995 |
+| software | wocintechchat | https://images.unsplash.com/photo-1573164713988-8665fc963095 |
+| analytics | Luke Chesser | https://images.unsplash.com/photo-1551288049-bebda4e38f71 |
 
 The campaign concept images in `public/media/` (founder, citrus) are AdLab illustrative concepts, not stock.
 

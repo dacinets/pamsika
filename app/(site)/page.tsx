@@ -12,6 +12,8 @@ import {pageMetadata} from '@/lib/site';
 export const metadata=pageMetadata('Ideas that move business.','Grow with Pamsika AdLab campaigns and Creative Market services: creativity, AI-powered production and African cultural intelligence.','/');
 
 const disciplineIcons:Record<string,typeof Camera>={'film-and-video':Clapperboard,'design-and-branding':PenTool,photography:Camera,'writing-and-content':Type,'sound-and-voice':AudioLines,'animation-and-motion':MoveUpRight};
+// The six craft disciplines; the Creative Market page presents every discipline.
+const homeDisciplines=marketServices.slice(0,6);
 const homeAnswers=['what-is-pamsika','choose-an-offering','pricing','ai-production'].map(id=>faqs.find(item=>item.id===id)!).filter(Boolean);
 
 export default function Home(){return <>
@@ -78,7 +80,7 @@ export default function Home(){return <>
  <div className="container">
   <SectionHeading eyebrow="Creative Market" title="What does your idea need?" description="Start with a specific discipline, or combine several around your project." action={<TextLink href="/creative-market">All disciplines</TextLink>}/>
   <div className="discipline-grid">
-   {marketServices.map(service=>{const Icon=disciplineIcons[service.slug]??Camera;return <a className="discipline-tile glass lift" data-theme="dark" href={`/creative-market/${service.slug}/`} key={service.slug} data-reveal data-track={`Discipline: ${service.title}`}><StockImage name={service.image} className="tile-photo" sizes="(max-width:767px) 92vw, (max-width:1023px) 46vw, 30vw"/><span className="tile-top"><Icon size={26} strokeWidth={1.5} aria-hidden/><ArrowUpRight size={20} aria-hidden/></span><span><strong>{service.title}</strong><small>{service.summary}</small></span></a>})}
+   {homeDisciplines.map(service=>{const Icon=disciplineIcons[service.slug]??Camera;return <a className="discipline-tile glass lift" data-theme="dark" href={`/creative-market/${service.slug}/`} key={service.slug} data-reveal data-track={`Discipline: ${service.title}`}><StockImage name={service.image} className="tile-photo" sizes="(max-width:767px) 92vw, (max-width:1023px) 46vw, 30vw"/><span className="tile-top"><Icon size={26} strokeWidth={1.5} aria-hidden/><ArrowUpRight size={20} aria-hidden/></span><span><strong>{service.title}</strong><small>{service.summary}</small></span></a>})}
   </div>
  </div>
 </section>
