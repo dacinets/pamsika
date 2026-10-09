@@ -1,0 +1,4 @@
+import {SiteLink as Link} from '@/components/site/SiteLink';
+import {ArrowUpRight} from 'lucide-react';
+import type {ClientWork} from '@/lib/work';
+export function ClientWorkCard({work}:{work:ClientWork}){return <article className="campaign-card client-work-card"><Link href={`/work/${work.slug}`} className="campaign-image-link" aria-label={`Client work: ${work.client}, ${work.title}`}><img src={`${work.image}-1280.webp`} srcSet={`${work.image}-640.webp 640w, ${work.image}-1280.webp 1280w, ${work.image}-1672.webp 1672w`} sizes="(max-width:767px) 100vw, 60vw" width="1672" height="941" loading="lazy" alt={work.alt}/><span className="campaign-open"><ArrowUpRight aria-hidden/></span><span className="concept-badge client-badge">Client work · {work.category}</span></Link><div className="campaign-info"><p className="eyebrow">{work.client} · {work.location}</p><h3><Link href={`/work/${work.slug}`}>{work.title}</Link></h3><p>{work.description}</p></div></article>}
