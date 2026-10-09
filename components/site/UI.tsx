@@ -11,6 +11,6 @@ export function SectionHeading({eyebrow,title,description,action}:{eyebrow:strin
  return <div className="section-heading"><div><Eyebrow>{eyebrow}</Eyebrow><h2>{title}</h2>{description&&<p className="section-description">{description}</p>}</div>{action}</div>;
 }
 export function CTA({title='What could your next idea become?',description='Tell us where you want to take your business. Let’s make the next move together.'}:{title?:string;description?:string}) {
- return <section className="cta-band"><div className="container"><div className="cta-shell" data-reveal><PatternArt id="cta"/><div><Eyebrow>Your next move</Eyebrow><h2>{title}</h2><p>{description}</p></div><ButtonLink href="/start-a-campaign" variant="inverse" track="Start a campaign (CTA band)">Start a campaign</ButtonLink></div></div></section>;
+ return <section className="cta-band"><div className="container"><div className="cta-shell" data-theme="dark" data-reveal><PatternArt id="cta"/><div><Eyebrow>Your next move</Eyebrow><h2>{title}</h2><p>{description}</p></div><ButtonLink href="/start-a-campaign" variant="inverse" track="Start a campaign (CTA band)">Start a campaign</ButtonLink></div></div></section>;
 }
 export function PageIntro({eyebrow,title,description}:{eyebrow:string;title:string;description:string}) {return <div className="page-intro container"><Eyebrow>{eyebrow}</Eyebrow><h1>{title}</h1><p className="lead">{description}</p></div>;}

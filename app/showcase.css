@@ -193,19 +193,19 @@
 .sc-rail{display:flex;align-items:stretch;gap:10px;margin-top:16px}
 .sc-rail ol{list-style:none;margin:0;padding:0;flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .sc-rail ol button{width:100%;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:4px 10px;padding:12px 12px 10px;border-radius:var(--radius-sm);text-align:left;cursor:pointer;
-  color:var(--text-secondary);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);transition:background .3s ease,border-color .3s ease,color .3s ease}
-.sc-rail ol button:hover{background:rgba(255,255,255,.06)}
-.sc-rail ol button.is-active{color:#fff;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)}
+  color:var(--text-secondary);background:rgba(var(--fg-rgb),.03);border:1px solid rgba(var(--fg-rgb),.08);transition:background .3s ease,border-color .3s ease,color .3s ease}
+.sc-rail ol button:hover{background:rgba(var(--fg-rgb),.06)}
+.sc-rail ol button.is-active{color:rgb(var(--fg-rgb));background:rgba(var(--fg-rgb),.07);border-color:rgba(var(--fg-rgb),.18)}
 .sc-rail-n{font:700 .6875rem/1 var(--font-display);letter-spacing:.12em;color:var(--color-brand-accent)}
 .sc-rail-t{font:700 .75rem/1.1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sc-rail-bar{grid-column:1/-1;height:2px;border-radius:2px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:6px}
+.sc-rail-bar{grid-column:1/-1;height:2px;border-radius:2px;background:rgba(var(--fg-rgb),.12);overflow:hidden;margin-top:6px}
 .sc-rail-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--color-brand-accent),#ffb066);transform-origin:0 50%;transform:scaleX(0)}
 .sc-rail .is-done .sc-rail-bar i{transform:scaleX(1);opacity:.45}
 .sc-rail .is-active .sc-rail-bar i{transform:scaleX(1);animation:sc-progress linear both;animation-play-state:paused}
 .is-running .sc-rail .is-active .sc-rail-bar i{animation-play-state:running}
 @keyframes sc-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.sc-toggle{flex:none;width:48px;display:grid;place-items:center;border-radius:var(--radius-sm);cursor:pointer;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14)}
-.sc-toggle:hover{background:rgba(255,255,255,.1)}
+.sc-toggle{flex:none;width:48px;display:grid;place-items:center;border-radius:var(--radius-sm);cursor:pointer;color:rgb(var(--fg-rgb));background:rgba(var(--fg-rgb),.05);border:1px solid rgba(var(--fg-rgb),.14)}
+.sc-toggle:hover{background:rgba(var(--fg-rgb),.1)}
 .sc-caption{margin-top:12px;font-size:.875rem;color:var(--text-secondary);min-height:1.5em}
 
 /* Ambient motion only while the story is running */
